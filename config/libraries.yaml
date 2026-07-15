@@ -7,10 +7,89 @@ libraries:
     pinned_version: 4.8.8
     ecosystem: maven
     maven_group: org.apache.camel
-    # Artifact ids of the camel-* components actually used by our project.
-    # Empty list = no component filter (every finding is treated as potentially
-    # relevant). Fill this in to reduce noise — see AGENT.md step 4.
-    used_components: []
+    # Artifact ids of the camel-* components actually used by our project
+    # (from the deployed 4.8.8 jar list, 2026-07-15). Camel artifacts only —
+    # third-party transitive dependencies (CXF, MINA, Jackson, ...) are NOT
+    # covered by this watch and are handled by the regular SBOM/CVE scanning.
+    used_components:
+      - camel-api
+      - camel-atom
+      - camel-attachments
+      - camel-azure-files
+      - camel-azure-storage-blob
+      - camel-base
+      - camel-base-engine
+      - camel-bean
+      - camel-browse
+      - camel-cloud
+      - camel-cluster
+      - camel-console
+      - camel-controlbus
+      - camel-core
+      - camel-core-catalog
+      - camel-core-engine
+      - camel-core-languages
+      - camel-core-model
+      - camel-core-processor
+      - camel-core-reifier
+      - camel-core-xml
+      - camel-cxf-common
+      - camel-cxf-soap
+      - camel-cxf-spring-common
+      - camel-cxf-spring-soap
+      - camel-cxf-spring-transport
+      - camel-cxf-transport
+      - camel-dataformat
+      - camel-dataset
+      - camel-direct
+      - camel-exec
+      - camel-file
+      - camel-ftp
+      - camel-health
+      - camel-http-base
+      - camel-http-common
+      - camel-jackson
+      - camel-jacksonxml
+      - camel-jaxb
+      - camel-jms
+      - camel-kafka
+      - camel-language
+      - camel-ldap
+      - camel-log
+      - camel-mail
+      - camel-main
+      - camel-management
+      - camel-management-api
+      - camel-mock
+      - camel-openapi-java
+      - camel-quartz
+      - camel-ref
+      - camel-rest
+      - camel-rss
+      - camel-saga
+      - camel-scheduler
+      - camel-seda
+      - camel-servlet
+      - camel-soap
+      - camel-spring
+      - camel-spring-xml
+      - camel-stub
+      - camel-support
+      - camel-timer
+      - camel-tooling-model
+      - camel-tooling-util
+      - camel-util
+      - camel-util-json
+      - camel-validator
+      - camel-xml-io
+      - camel-xml-io-util
+      - camel-xml-jaxb
+      - camel-xml-jaxp
+      - camel-xml-jaxp-util
+      - camel-xpath
+      - camel-xslt
+      - camel-yaml-io
+      - camel-zipfile
     sources:
       security_page: https://camel.apache.org/security/
       ghsa:
