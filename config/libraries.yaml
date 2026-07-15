@@ -1,0 +1,40 @@
+# Monitored libraries. See AGENT.md for how each field is used.
+# To watch another library, copy the apache-camel entry and adjust.
+
+libraries:
+  - id: apache-camel
+    display_name: Apache Camel
+    pinned_version: 4.8.8
+    ecosystem: maven
+    maven_group: org.apache.camel
+    # Artifact ids of the camel-* components actually used by our project.
+    # Empty list = no component filter (every finding is treated as potentially
+    # relevant). Fill this in to reduce noise — see AGENT.md step 4.
+    used_components: []
+    sources:
+      security_page: https://camel.apache.org/security/
+      ghsa:
+        ecosystem: maven
+        group_prefix: org.apache.camel
+      nvd_keyword: apache camel
+      jira:
+        base_url: https://issues.apache.org/jira
+        # {{LOOKBACK}} is replaced by the agent with the current window, e.g. -3d
+        jql: >-
+          project = CAMEL
+          AND (labels in (security) OR summary ~ "CVE" OR text ~ "vulnerability")
+          AND resolved >= {{LOOKBACK}}
+      github_repo: apache/camel
+
+  # Next candidate (fill in pinned_version + used modules when ready):
+  # - id: spring-framework
+  #   display_name: Spring Framework
+  #   pinned_version: <x.y.z>
+  #   ecosystem: maven
+  #   maven_group: org.springframework
+  #   used_components: []
+  #   sources:
+  #     security_page: https://spring.io/security
+  #     ghsa: { ecosystem: maven, group_prefix: org.springframework }
+  #     nvd_keyword: spring framework
+  #     github_repo: spring-projects/spring-framework
