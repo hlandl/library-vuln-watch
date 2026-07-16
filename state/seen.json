@@ -1,6 +1,9 @@
 {
-  "last_run": "2026-07-15T00:00:00Z",
+  "last_run": "2026-07-16T04:10:16Z",
   "seen": {
+    "CAMEL-24061": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23995": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23979": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "CVE-2026-33454": { "date": "2026-07-15", "verdict": "AFFECTS_US", "library": "apache-camel" },
     "CVE-2026-47323": { "date": "2026-07-15", "verdict": "AFFECTS_US", "library": "apache-camel" },
     "CAMEL-23522": { "date": "2026-07-15", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
