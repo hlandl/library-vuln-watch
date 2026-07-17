@@ -1,6 +1,17 @@
 {
-  "last_run": "2026-07-16T04:10:16Z",
+  "last_run": "2026-07-17T04:12:22Z",
   "seen": {
+    "CAMEL-24098": { "date": "2026-07-17", "verdict": "AFFECTS_US", "library": "apache-camel" },
+    "CAMEL-24084": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24108": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24110": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24107": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24078": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23997": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23970": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23843": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23845": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24047": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "CAMEL-24061": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "CAMEL-23995": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "CAMEL-23979": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
