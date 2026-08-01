@@ -224,6 +224,23 @@
     "apache/camel@d282a10d42903d01175d782d3ff1c21b2527c6a1": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "apache/camel@d2b5784e50e72258c62ef67cad9539986ce351f8": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "apache/camel@4612bf35141e1d4c5c18018b5ac6931649dd5244": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@68c4eaf5fcc908ccdaac193d233009f40717462b": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" }
+    "apache/camel@68c4eaf5fcc908ccdaac193d233009f40717462b": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23932": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24317": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24324": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@71fa9ce96bf9e0d7da201eb06fabc47ef4c02a5e": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24319": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24291": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24268": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24288": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-24318": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@ee6351b16def1992006399f5c2e1fac62a30bb53": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@db800cae43fa8dd0ee330223504b79f72baf548d": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@dadfd9874bf5adb47dc432d82ba2a2f390f343ea": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23677": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CAMEL-23931": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@0886735cd808fd4bb1717b0722f215d5c53b50ba": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@16c9a2e1f7fb3ae6b308687147bd0583ac4794fc": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "apache/camel@f8e59bfae43ebb402a6dbf568d549fde257be765": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" }
   }
 }
