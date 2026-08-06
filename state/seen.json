@@ -1,6 +1,13 @@
 {
-  "last_run": "2026-08-05T04:00:00Z",
+  "last_run": "2026-08-06T04:13:37Z",
   "seen": {
+    "CVE-2026-40453": { "date": "2026-08-06", "verdict": "AFFECTS_US", "library": "apache-camel" },
+    "CAMEL-24298": { "date": "2026-08-06", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
+    "CVE-2026-40858": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CVE-2026-40022": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CVE-2026-40048": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CVE-2026-40473": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
+    "CVE-2025-30177": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
     "CAMEL-24256": { "date": "2026-07-28", "verdict": "AFFECTS_US", "library": "apache-camel" },
     "CAMEL-24210": { "date": "2026-07-28", "verdict": "AFFECTS_US", "library": "apache-camel" },
     "CAMEL-24215": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
