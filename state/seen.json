@@ -1,320 +1,1597 @@
 {
-  "last_run": "2026-08-10T04:10:26Z",
+  "last_run": "2026-08-11T04:10:00Z",
   "seen": {
-    "CAMEL-24371": { "date": "2026-08-10", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24360": { "date": "2026-08-08", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24296": { "date": "2026-08-07", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
-    "GHSA-vvjc-q5vr-52q6": { "date": "2026-08-07", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40453": { "date": "2026-08-06", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24298": { "date": "2026-08-06", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
-    "CVE-2026-40858": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40022": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40048": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40473": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2025-30177": { "date": "2026-08-06", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24256": { "date": "2026-07-28", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24210": { "date": "2026-07-28", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24215": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24056": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24158": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24204": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23244": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24227": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23876": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24231": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24218": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24222": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@94e24109fbfc8ec4a64429968c7fb6193d678c51": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@27a26cdb730c515827089de70b48add9ee4957f6": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f741589d90ecc23195c1d898175a7e420ebf3c78": { "date": "2026-07-28", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40860": { "date": "2026-07-23", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-43866": { "date": "2026-07-23", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-46592": { "date": "2026-07-23", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-49098": { "date": "2026-07-23", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-40047": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-43865": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46453": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46454": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46455": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46456": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46591": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46726": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-48204": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-48205": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-49042": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-49099": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-53913": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-55993": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-55994": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-56139": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-56140": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-45760": { "date": "2026-07-23", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46584": { "date": "2026-07-22", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-42527": { "date": "2026-07-22", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
-    "CVE-2026-49365": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-49097": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46587": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-48203": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46585": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-49086": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46588": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-48206": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-40859": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-43867": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46457": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-46590": { "date": "2026-07-22", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24141": { "date": "2026-07-18", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24166": { "date": "2026-07-18", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24164": { "date": "2026-07-18", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24152": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24106": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24144": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24138": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24142": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24134": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24112": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24088": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24162": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24186": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24140": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24139": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24101": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24104": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23703": { "date": "2026-07-18", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24098": { "date": "2026-07-17", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24084": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24108": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24110": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24107": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24078": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23997": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23970": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23843": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23845": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24047": { "date": "2026-07-17", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24061": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23995": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23979": { "date": "2026-07-16", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2026-33454": { "date": "2026-07-15", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CVE-2026-47323": { "date": "2026-07-15", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-23522": { "date": "2026-07-15", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
-    "GHSA-695c-x5gc-94gj": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-4xwx-hvv7-7prj": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-5rc6-9qfp-8vwg": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-27vm-5vpj-rp5g": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-jg2m-9x48-3gvj": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-vpr3-2659-rw55": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-v3vg-332r-mw99": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-xfxp-ppx7-cqrp": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-7mqr-33rv-p3mp": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-c3f3-cc42-xr9v": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-429q-mrc4-38fr": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-4jrw-64vr-7g8m": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-vq4p-pchp-6g6v": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2025-29891": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2025-27636": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2024-22371": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-36xr-4x2f-cfj9": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-m43p-55rf-8c2j": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-6g2w-257v-3c9f": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2022-45046": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-5whj-523x-6j68": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2013-4330": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-v8q2-94f6-6xq2": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-rhg5-fqr3-hrf5": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-88cc-g835-76rp": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-2x6r-7427-95cm": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2020-11971": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-26gr-cvq3-qxgf": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-g2fg-mr77-6vrm": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-mw36-7c6c-q4q2": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-9vfj-5g7h-4p24": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-h79p-32mx-fjj9": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-5mh9-r3rr-9597": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-7qx4-pp76-vrqh": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-cqqj-4p63-rrmm": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-8wx2-9q48-vm9r": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-p979-4mfw-53vg": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2019-0188": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2019-0194": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2014-0003": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2014-0002": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2017-5643": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2016-8749": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-26v6-w6fw-rh94": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-gv5f-cjw9-5vxg": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2015-0264": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2015-0263": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2018-8041": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CVE-2018-8027": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-vf4q-8mr7-5c5c": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "GHSA-hvpr-9cr6-q5v7": { "date": "2026-07-15", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24281": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24146": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@68914926ebc1a3a8694690a82e3612bfb8944416": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@7db6d0d6c41023df7c168a92433e24b90a9926cb": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@7bbd202f40df1e6a201d88059816bd12e83a4669": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24259": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@13538839a4ab4a452421342473c0fa353bfcf855": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24220": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f3123bfa2048c3d6949c9f1940831221f81baad4": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@3b7d2358aae2048a878a2059eb7af294001bfb5f": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@801bc2a9b473050e41cfc4d3025830647d5c8f28": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@cc637efc3fda4ecc0a4d1953c8ad06a22d6cdc69": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@ef288e71825e340b1feaf7fd5e3f31d4f4f81e63": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@fd39ed81cdf7368c59e87a9549186161282ae9f1": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-20428": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@59c12bf0daa6dbd635564fc73b9044f6b64ba401": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@ea61f663771d02a365d2bd4848cb69f0e4dd5d8c": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-21955": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24226": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24026": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23393": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24203": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23951": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23968": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@9bbed33198080af5be7c0c88059e30a8ae45d53a": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24125": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24160": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24195": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24196": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@73fe3089db15df5c093e6764cd38c07ebb3575a0": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24161": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24155": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24193": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24191": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24128": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24120": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24273": { "date": "2026-07-29", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23994": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-22538": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23460": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24085": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@4d1c892e0f00155da2f136d7aa3fda403f940fc0": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@c2bbde32dd9a5864d361afb709ff7df07b874c0f": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@b0c528b652fcb8346887782eafc3ca396d2774f7": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@13d0f40a83ec1f5acd59c029d4b0f48325c8dd7d": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@64e89757b1db8dcc2ea5497fe9ffe209ed9fa3a5": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@4552c7ebcf9120029a7df6da7b6c023da128d5cf": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@439f20faf0bf91527fa21253fad32ab7b60bee5a": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@02f69cc97ca286654c0121d52700ac12e21e7ae4": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@7d2f15057ffa10cea7998abd2c73aa6306a7d994": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@58fc7d7627a90c6bfabebbdb453d5e1cf59983c8": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@60fefde622ffa75b5f77942339c5a8963fcd52fb": { "date": "2026-07-30", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24293": { "date": "2026-07-31", "verdict": "AFFECTS_US", "library": "apache-camel" },
-    "CAMEL-24286": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-20199": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24267": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24266": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24316": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24307": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24304": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24303": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24302": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24285": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24300": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24289": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23963": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23964": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24282": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@81ec2fb9e70ef860c0ac15269f5454ca5b94d593": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@3da9ddc70a95c2016795a630836338624f2072e8": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@e0610d884d196e3c6f40df52c5827f6cd61cabe7": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@8ec0412b2d9230240e652c47c35675bcff25c368": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@452b47f4764f6c0ff3a6f9d06a0e07263a934e54": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d1f6a3af1e6954f3b42911cd0a3b945e88e30ed0": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@998d1bc2e9b943f574ad1dd441de9e2050cfea58": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@4246517ffa84ef7a2d909eb96811b994c212eb47": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d272a80901cb3b981e5013ffd28c28a74fc28264": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@627bb33e3b16cb84066d288a6a99e466dc6cfeef": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@c5a7b42a5f11a1029ff6927ccbe047ca4b5a9875": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@0759a9243b99410281ba3981a8683a8493a8293a": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@5e2c030dee302a91ce3f9cf0262e63edf6412c1c": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@3cd711f33f550fe7062234a357ecf487ab8c933f": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@05c02ff708d3e63453f4d67ca55fe0180973d822": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d282a10d42903d01175d782d3ff1c21b2527c6a1": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d2b5784e50e72258c62ef67cad9539986ce351f8": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@4612bf35141e1d4c5c18018b5ac6931649dd5244": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@68c4eaf5fcc908ccdaac193d233009f40717462b": { "date": "2026-07-31", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23932": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24317": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24324": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@71fa9ce96bf9e0d7da201eb06fabc47ef4c02a5e": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24319": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24291": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24268": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24288": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24318": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@ee6351b16def1992006399f5c2e1fac62a30bb53": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@db800cae43fa8dd0ee330223504b79f72baf548d": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@dadfd9874bf5adb47dc432d82ba2a2f390f343ea": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23677": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23931": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@0886735cd808fd4bb1717b0722f215d5c53b50ba": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@16c9a2e1f7fb3ae6b308687147bd0583ac4794fc": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f8e59bfae43ebb402a6dbf568d549fde257be765": { "date": "2026-08-01", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24328": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@99be17200f93c6066f64b67fe0a8b5477c391e4f": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24297": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24329": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@38097ece3b9eb56f0268323b1bd8bfd70a28ccfc": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@0be1b361c86aed6d1e606571199c9705bc781ebe": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@78454c96d9e360853f9b43c133a4757c593050de": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f80b1aa44ad30d320313432373cba56e8707cbdd": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f95d5dac6ee7377c31b6519638f8ef37f03cf92d": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24320": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-18552": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24326": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24294": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@f11e1e8b95f4d3409c46312bc773aa65663c28df": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@8fc446aa61189f1fb1fa6cc45946e1836ccde782": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@59a63ab24c1c60d1cbedb40f946109068264fea4": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@4ef86cfc600d277d950717ff617c6ab2d2660082": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@1b43a2f03e8f9f57811c2a8516cd7e845b55008f": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@2aac87a1d6d74754b5e097539c9abb4b0ff76f66": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@ea54e327773a41b3bc12cb07ea1744b4fda34f19": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@a2096219aeee9db1cc5405e2992a38dd890c0408": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@02307db6fa6c6cdb5dfc21b26ada76c1be26c020": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23382": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24299": { "date": "2026-08-04", "verdict": "NEEDS_REVIEW", "library": "apache-camel" },
-    "CAMEL-23078": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24287": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@198c0ff1fc6852679f0a73ea155d0fdf9bd4ef27": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d5b71582e67cf0821d05ae59b6a2c25e870cd4e4": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24323": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24284": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24315": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@279175a0bfff2927bd10630a60bbde0b6d537d3d": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24305": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23383": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24275": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@742b63ca87fdacdcc22e2c4e9b13556fe788faaf": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@5f9d364487519841fde5954cacb11d423443935f": { "date": "2026-08-04", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@3653911d71cdaa03db5bd158657b7d0f8a1dd113": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@1ec4b8ba927d8a2b6daa75dd9a2ee303b603eb0d": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@af3014825742ee7ae2f7ae24c5c268e09df14404": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24202": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24341": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@6597f282b4b26bf6cfe155aaabf0f4dd42d533a3": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24353": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24310": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@ff643b08f15d694b18f2f3d8abf8bc28da8d1187": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@6422a66f06150216081b7a1ff5af0553a4e97193": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24262": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@fc3b584366ab7875a661521ac03ba9918fef77b3": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24340": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@2ce75e8f6ddd39efc0dc2cc8a6eac074286ec971": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24301": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@8e9a170778365ba8e5e6452a8032f7db21971c59": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24311": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23952": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-23129": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@0445e7a960e04166457bfb60b0fbd95bc445a951": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@6f71546b78bf24540be578cf470363583fb81c71": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24336": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24309": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "apache/camel@d7f3713fd86743123e3b53c1f0c7736a2b0d84f3": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24335": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" },
-    "CAMEL-24330": { "date": "2026-08-05", "verdict": "NOT_RELEVANT", "library": "apache-camel" }
+    "CAMEL-24371": {
+      "date": "2026-08-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24360": {
+      "date": "2026-08-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24296": {
+      "date": "2026-08-07",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "GHSA-vvjc-q5vr-52q6": {
+      "date": "2026-08-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40453": {
+      "date": "2026-08-06",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24298": {
+      "date": "2026-08-06",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40858": {
+      "date": "2026-08-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40022": {
+      "date": "2026-08-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40048": {
+      "date": "2026-08-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40473": {
+      "date": "2026-08-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2025-30177": {
+      "date": "2026-08-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24256": {
+      "date": "2026-07-28",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24210": {
+      "date": "2026-07-28",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24215": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24056": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24158": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24204": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23244": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24227": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23876": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24231": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24218": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24222": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@94e24109fbfc8ec4a64429968c7fb6193d678c51": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@27a26cdb730c515827089de70b48add9ee4957f6": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f741589d90ecc23195c1d898175a7e420ebf3c78": {
+      "date": "2026-07-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40860": {
+      "date": "2026-07-23",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-43866": {
+      "date": "2026-07-23",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46592": {
+      "date": "2026-07-23",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49098": {
+      "date": "2026-07-23",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40047": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-43865": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46453": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46454": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46455": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46456": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46591": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46726": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-48204": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-48205": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49042": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49099": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-53913": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-55993": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-55994": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-56139": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-56140": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-45760": {
+      "date": "2026-07-23",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46584": {
+      "date": "2026-07-22",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-42527": {
+      "date": "2026-07-22",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49365": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49097": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46587": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-48203": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46585": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-49086": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46588": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-48206": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-40859": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-43867": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46457": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-46590": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24141": {
+      "date": "2026-07-18",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24166": {
+      "date": "2026-07-18",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24164": {
+      "date": "2026-07-18",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24152": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24106": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24144": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24138": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24142": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24134": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24112": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24088": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24162": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24186": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24140": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24139": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24101": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24104": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23703": {
+      "date": "2026-07-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24098": {
+      "date": "2026-07-17",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24084": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24108": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24110": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24107": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24078": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23997": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23970": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23843": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23845": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24047": {
+      "date": "2026-07-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24061": {
+      "date": "2026-07-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23995": {
+      "date": "2026-07-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23979": {
+      "date": "2026-07-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-33454": {
+      "date": "2026-07-15",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-47323": {
+      "date": "2026-07-15",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-23522": {
+      "date": "2026-07-15",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "GHSA-695c-x5gc-94gj": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-4xwx-hvv7-7prj": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-5rc6-9qfp-8vwg": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-27vm-5vpj-rp5g": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-jg2m-9x48-3gvj": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-vpr3-2659-rw55": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-v3vg-332r-mw99": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-xfxp-ppx7-cqrp": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-7mqr-33rv-p3mp": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-c3f3-cc42-xr9v": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-429q-mrc4-38fr": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-4jrw-64vr-7g8m": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-vq4p-pchp-6g6v": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2025-29891": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2025-27636": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2024-22371": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-36xr-4x2f-cfj9": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-m43p-55rf-8c2j": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-6g2w-257v-3c9f": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2022-45046": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-5whj-523x-6j68": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2013-4330": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-v8q2-94f6-6xq2": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-rhg5-fqr3-hrf5": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-88cc-g835-76rp": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-2x6r-7427-95cm": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2020-11971": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-26gr-cvq3-qxgf": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-g2fg-mr77-6vrm": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-mw36-7c6c-q4q2": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-9vfj-5g7h-4p24": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-h79p-32mx-fjj9": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-5mh9-r3rr-9597": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-7qx4-pp76-vrqh": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-cqqj-4p63-rrmm": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-8wx2-9q48-vm9r": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-p979-4mfw-53vg": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2019-0188": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2019-0194": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2014-0003": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2014-0002": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2017-5643": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2016-8749": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-26v6-w6fw-rh94": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-gv5f-cjw9-5vxg": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2015-0264": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2015-0263": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2018-8041": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2018-8027": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-vf4q-8mr7-5c5c": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-hvpr-9cr6-q5v7": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24281": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24146": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@68914926ebc1a3a8694690a82e3612bfb8944416": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@7db6d0d6c41023df7c168a92433e24b90a9926cb": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@7bbd202f40df1e6a201d88059816bd12e83a4669": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24259": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@13538839a4ab4a452421342473c0fa353bfcf855": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24220": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f3123bfa2048c3d6949c9f1940831221f81baad4": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@3b7d2358aae2048a878a2059eb7af294001bfb5f": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@801bc2a9b473050e41cfc4d3025830647d5c8f28": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@cc637efc3fda4ecc0a4d1953c8ad06a22d6cdc69": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ef288e71825e340b1feaf7fd5e3f31d4f4f81e63": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@fd39ed81cdf7368c59e87a9549186161282ae9f1": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-20428": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@59c12bf0daa6dbd635564fc73b9044f6b64ba401": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ea61f663771d02a365d2bd4848cb69f0e4dd5d8c": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-21955": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24226": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24026": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23393": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24203": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23951": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23968": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@9bbed33198080af5be7c0c88059e30a8ae45d53a": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24125": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24160": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24195": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24196": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@73fe3089db15df5c093e6764cd38c07ebb3575a0": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24161": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24155": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24193": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24191": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24128": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24120": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24273": {
+      "date": "2026-07-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23994": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-22538": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23460": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24085": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@4d1c892e0f00155da2f136d7aa3fda403f940fc0": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@c2bbde32dd9a5864d361afb709ff7df07b874c0f": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@b0c528b652fcb8346887782eafc3ca396d2774f7": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@13d0f40a83ec1f5acd59c029d4b0f48325c8dd7d": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@64e89757b1db8dcc2ea5497fe9ffe209ed9fa3a5": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@4552c7ebcf9120029a7df6da7b6c023da128d5cf": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@439f20faf0bf91527fa21253fad32ab7b60bee5a": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@02f69cc97ca286654c0121d52700ac12e21e7ae4": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@7d2f15057ffa10cea7998abd2c73aa6306a7d994": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@58fc7d7627a90c6bfabebbdb453d5e1cf59983c8": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@60fefde622ffa75b5f77942339c5a8963fcd52fb": {
+      "date": "2026-07-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24293": {
+      "date": "2026-07-31",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24286": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-20199": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24267": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24266": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24316": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24307": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24304": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24303": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24302": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24285": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24300": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24289": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23963": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23964": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24282": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@81ec2fb9e70ef860c0ac15269f5454ca5b94d593": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@3da9ddc70a95c2016795a630836338624f2072e8": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@e0610d884d196e3c6f40df52c5827f6cd61cabe7": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@8ec0412b2d9230240e652c47c35675bcff25c368": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@452b47f4764f6c0ff3a6f9d06a0e07263a934e54": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d1f6a3af1e6954f3b42911cd0a3b945e88e30ed0": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@998d1bc2e9b943f574ad1dd441de9e2050cfea58": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@4246517ffa84ef7a2d909eb96811b994c212eb47": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d272a80901cb3b981e5013ffd28c28a74fc28264": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@627bb33e3b16cb84066d288a6a99e466dc6cfeef": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@c5a7b42a5f11a1029ff6927ccbe047ca4b5a9875": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@0759a9243b99410281ba3981a8683a8493a8293a": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@5e2c030dee302a91ce3f9cf0262e63edf6412c1c": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@3cd711f33f550fe7062234a357ecf487ab8c933f": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@05c02ff708d3e63453f4d67ca55fe0180973d822": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d282a10d42903d01175d782d3ff1c21b2527c6a1": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d2b5784e50e72258c62ef67cad9539986ce351f8": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@4612bf35141e1d4c5c18018b5ac6931649dd5244": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@68c4eaf5fcc908ccdaac193d233009f40717462b": {
+      "date": "2026-07-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23932": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24317": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24324": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@71fa9ce96bf9e0d7da201eb06fabc47ef4c02a5e": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24319": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24291": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24268": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24288": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24318": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ee6351b16def1992006399f5c2e1fac62a30bb53": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@db800cae43fa8dd0ee330223504b79f72baf548d": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@dadfd9874bf5adb47dc432d82ba2a2f390f343ea": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23677": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23931": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@0886735cd808fd4bb1717b0722f215d5c53b50ba": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@16c9a2e1f7fb3ae6b308687147bd0583ac4794fc": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f8e59bfae43ebb402a6dbf568d549fde257be765": {
+      "date": "2026-08-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24328": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@99be17200f93c6066f64b67fe0a8b5477c391e4f": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24297": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24329": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@38097ece3b9eb56f0268323b1bd8bfd70a28ccfc": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@0be1b361c86aed6d1e606571199c9705bc781ebe": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@78454c96d9e360853f9b43c133a4757c593050de": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f80b1aa44ad30d320313432373cba56e8707cbdd": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f95d5dac6ee7377c31b6519638f8ef37f03cf92d": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24320": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-18552": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24326": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24294": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@f11e1e8b95f4d3409c46312bc773aa65663c28df": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@8fc446aa61189f1fb1fa6cc45946e1836ccde782": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@59a63ab24c1c60d1cbedb40f946109068264fea4": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@4ef86cfc600d277d950717ff617c6ab2d2660082": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@1b43a2f03e8f9f57811c2a8516cd7e845b55008f": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@2aac87a1d6d74754b5e097539c9abb4b0ff76f66": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ea54e327773a41b3bc12cb07ea1744b4fda34f19": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@a2096219aeee9db1cc5405e2992a38dd890c0408": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@02307db6fa6c6cdb5dfc21b26ada76c1be26c020": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23382": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24299": {
+      "date": "2026-08-04",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CAMEL-23078": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24287": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@198c0ff1fc6852679f0a73ea155d0fdf9bd4ef27": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d5b71582e67cf0821d05ae59b6a2c25e870cd4e4": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24323": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24284": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24315": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@279175a0bfff2927bd10630a60bbde0b6d537d3d": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24305": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23383": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24275": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@742b63ca87fdacdcc22e2c4e9b13556fe788faaf": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@5f9d364487519841fde5954cacb11d423443935f": {
+      "date": "2026-08-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@3653911d71cdaa03db5bd158657b7d0f8a1dd113": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@1ec4b8ba927d8a2b6daa75dd9a2ee303b603eb0d": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@af3014825742ee7ae2f7ae24c5c268e09df14404": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24202": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24341": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@6597f282b4b26bf6cfe155aaabf0f4dd42d533a3": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24353": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24310": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ff643b08f15d694b18f2f3d8abf8bc28da8d1187": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@6422a66f06150216081b7a1ff5af0553a4e97193": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24262": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@fc3b584366ab7875a661521ac03ba9918fef77b3": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24340": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@2ce75e8f6ddd39efc0dc2cc8a6eac074286ec971": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24301": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@8e9a170778365ba8e5e6452a8032f7db21971c59": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24311": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23952": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23129": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@0445e7a960e04166457bfb60b0fbd95bc445a951": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@6f71546b78bf24540be578cf470363583fb81c71": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24336": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24309": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@d7f3713fd86743123e3b53c1f0c7736a2b0d84f3": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24335": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24330": {
+      "date": "2026-08-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-23552": {
+      "date": "2026-08-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-33453": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "GHSA-695c-x5gc-94gj"
+    },
+    "CVE-2026-27172": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "GHSA-5rc6-9qfp-8vwg"
+    }
   }
 }
