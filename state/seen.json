@@ -1,6 +1,70 @@
 {
-  "last_run": "2026-08-11T04:10:00Z",
+  "last_run": "2026-08-12T04:08:05Z",
   "seen": {
+    "CAMEL-24371": {
+      "date": "2026-08-12",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24379": {
+      "date": "2026-08-12",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "GHSA-w66j-xc7r-m2jv": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2022-45046"
+    },
+    "GHSA-qvc3-6q9x-95pj": {
+      "date": "2026-07-23",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-53913"
+    },
+    "GHSA-hcm8-x79p-wx2w": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-48205"
+    },
+    "GHSA-f7g3-2cg6-f5hj": {
+      "date": "2026-07-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-48204"
+    },
+    "GHSA-8364-hfqj-pwm6": {
+      "date": "2026-07-15",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-47323"
+    },
+    "GHSA-2vqf-x7g4-7c2g": {
+      "date": "2026-07-15",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-33454"
+    },
+    "GHSA-96v5-c2h5-56hm": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2025-29891"
+    },
+    "GHSA-2c2h-2855-mf97": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2025-27636"
+    },
+    "GHSA-qpxm-689r-3849": {
+      "date": "2026-07-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2024-22371"
+    },
     "CAMEL-24371": {
       "date": "2026-08-10",
       "verdict": "NOT_RELEVANT",
