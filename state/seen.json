@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-19T04:05:51Z",
+  "last_run": "2026-08-20T04:08:35Z",
   "seen": {
     "apache/camel@ca11b8250b66722c69509ed5074ac5b6a6000141": {
       "date": "2026-08-17",
@@ -27,7 +27,7 @@
       "library": "apache-camel"
     },
     "CAMEL-24371": {
-      "date": "2026-08-12",
+      "date": "2026-08-10",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     },
@@ -89,11 +89,6 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "alias_of": "CVE-2024-22371"
-    },
-    "CAMEL-24371": {
-      "date": "2026-08-10",
-      "verdict": "NOT_RELEVANT",
-      "library": "apache-camel"
     },
     "CAMEL-24360": {
       "date": "2026-08-08",
