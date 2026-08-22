@@ -1,6 +1,36 @@
 {
-  "last_run": "2026-08-21T04:10:00Z",
+  "last_run": "2026-08-22T04:08:40Z",
   "seen": {
+    "CAMEL-24419": {
+      "date": "2026-08-22",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24411": {
+      "date": "2026-08-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24413": {
+      "date": "2026-08-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24370": {
+      "date": "2026-08-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24349": {
+      "date": "2026-08-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@ffca0e4faf37e2d552c12e98c7c0c30eb1d7854d": {
+      "date": "2026-08-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
     "apache/camel@367ce4843827d87fb5016e13c564f0f3a1f0aac0": {
       "date": "2026-08-21",
       "verdict": "NOT_RELEVANT",
