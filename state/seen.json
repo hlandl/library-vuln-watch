@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-23T04:07:20Z",
+  "last_run": "2026-08-24T04:09:06Z",
   "seen": {
     "CAMEL-24412": {
       "date": "2026-08-23",
@@ -1721,6 +1721,16 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "alias_of": "GHSA-5rc6-9qfp-8vwg"
+    },
+    "CAMEL-22114": {
+      "date": "2026-08-24",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@09e4c3c0a6082debe164b500bd0ba41b392f3011": {
+      "date": "2026-08-24",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
     }
   }
 }
