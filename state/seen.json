@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-24T04:09:06Z",
+  "last_run": "2026-08-25T04:09:25Z",
   "seen": {
     "CAMEL-24412": {
       "date": "2026-08-23",
@@ -1729,6 +1729,72 @@
     },
     "apache/camel@09e4c3c0a6082debe164b500bd0ba41b392f3011": {
       "date": "2026-08-24",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24421": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24420": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24422": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CVE-2026-6857": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "GHSA-xfxp-ppx7-cqrp"
+    },
+    "CVE-2026-41635": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24401": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24414": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24398": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24373": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24384": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24397": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-16809": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24350": {
+      "date": "2026-08-25",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
