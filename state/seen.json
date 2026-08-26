@@ -1,6 +1,161 @@
 {
-  "last_run": "2026-08-25T04:09:25Z",
+  "last_run": "2026-08-26T04:09:00Z",
   "seen": {
+    "CAMEL-24487": {
+      "date": "2026-08-25",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-66906": {
+      "date": "2026-08-25",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "unconfirmed likely-alias of CAMEL-24487"
+    },
+    "CVE-2026-60093": {
+      "date": "2026-08-25",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "unconfirmed likely-alias of CAMEL-24487"
+    },
+    "CVE-2026-66907": {
+      "date": "2026-08-25",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "unconfirmed likely-alias of CAMEL-24487"
+    },
+    "CVE-2026-71300": {
+      "date": "2026-08-25",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CVE-2026-63621": {
+      "date": "2026-08-25",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CVE-2026-66908": {
+      "date": "2026-08-25",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel"
+    },
+    "CVE-2026-78329": {
+      "date": "2026-08-24",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CAMEL-23588"
+    },
+    "CVE-2026-59230": {
+      "date": "2026-08-22",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CAMEL-24419"
+    },
+    "CVE-2026-35563": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24403": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23239": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24483": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24399": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24469": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24471": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24470": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24468": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24410": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24337": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24382": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23929": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24465": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23967": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-21313": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@174f902cb8afbf9f649fc2b112aaff5958313819": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@6bbc943e342f9db5e906a974b0ebfdf7cdddf56a": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@62e3585f6113c1ce1d569317a21e8c9c20619b1d": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@83b6b0f96558dc997bc1887f57aff26631a650f6": {
+      "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "apache/camel@c0198f05b1e4c916b6829126e3dd28f66e82b813": {
+      "date": "2026-08-24",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
     "CAMEL-24412": {
       "date": "2026-08-23",
       "verdict": "NOT_RELEVANT",
