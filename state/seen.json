@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-26T04:09:00Z",
+  "last_run": "2026-08-27T04:11:11Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -1950,6 +1950,77 @@
     },
     "CAMEL-24350": {
       "date": "2026-08-25",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24416": {
+      "date": "2026-08-27",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24417": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24472": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "same commit as CAMEL-24471"
+    },
+    "CAMEL-24488": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24489": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24490": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24491": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24492": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24493": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24494": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24486": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24484": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24458": {
+      "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23397": {
+      "date": "2026-08-27",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
