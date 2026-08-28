@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-27T04:11:11Z",
+  "last_run": "2026-08-28T04:03:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2021,6 +2021,88 @@
     },
     "CAMEL-23397": {
       "date": "2026-08-27",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-22680": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23305": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-23398": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24408": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24428": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24445": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED thread-safety/crypto-integrity fix (shared Signature instance); camel-pqc not in used_components"
+    },
+    "CAMEL-24457": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24463": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24509": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED deserialization-gating hardening fix; camel-mina not in used_components"
+    },
+    "CAMEL-24511": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24513": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24517": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24518": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24519": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24520": {
+      "date": "2026-08-28",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24521": {
+      "date": "2026-08-28",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
