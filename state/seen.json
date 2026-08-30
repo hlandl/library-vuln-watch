@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-29T04:03:00Z",
+  "last_run": "2026-08-30T04:03:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2283,6 +2283,21 @@
     },
     "CAMEL-24547": {
       "date": "2026-08-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24514": {
+      "date": "2026-08-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24550": {
+      "date": "2026-08-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24564": {
+      "date": "2026-08-30",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
