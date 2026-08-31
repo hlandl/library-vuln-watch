@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-30T04:03:00Z",
+  "last_run": "2026-08-31T04:10:01Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -26,18 +26,21 @@
     },
     "CVE-2026-71300": {
       "date": "2026-08-25",
-      "verdict": "NEEDS_REVIEW",
-      "library": "apache-camel"
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "resolved 2026-08-31: public advisory identifies camel-atmosphere-websocket (WebSocket dispatch header injection); not a used_component"
     },
     "CVE-2026-63621": {
       "date": "2026-08-25",
-      "verdict": "NEEDS_REVIEW",
-      "library": "apache-camel"
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "resolved 2026-08-31: public advisory identifies camel-knative (CloudEvent header-filter gap); not a used_component"
     },
     "CVE-2026-66908": {
       "date": "2026-08-25",
-      "verdict": "NEEDS_REVIEW",
-      "library": "apache-camel"
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "resolved 2026-08-31: public advisory identifies camel-platform-http-main (JWT iss/aud not validated); not a used_component"
     },
     "CVE-2026-78329": {
       "date": "2026-08-24",
@@ -532,8 +535,9 @@
     },
     "CVE-2026-42527": {
       "date": "2026-07-22",
-      "verdict": "NEEDS_REVIEW",
-      "library": "apache-camel"
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "resolved 2026-08-31: affected ranges 4.14.0-4.14.8 / 4.15.0-4.18.3 / 4.19.0-4.21.0 (permissive default ObjectInputFilter admitting java.net.**); pinned 4.8.8 predates the ObjectInputFilter mechanism entirely (no filter at all, per CAMEL-24296) and falls outside every affected range"
     },
     "CVE-2026-49365": {
       "date": "2026-07-22",
@@ -2298,6 +2302,41 @@
     },
     "CAMEL-24564": {
       "date": "2026-08-30",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24344": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24345": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24438": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24525": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24537": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24552": {
+      "date": "2026-08-31",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24561": {
+      "date": "2026-08-31",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
