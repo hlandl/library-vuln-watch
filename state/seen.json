@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-31T04:10:01Z",
+  "last_run": "2026-09-01T04:11:49Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2339,6 +2339,150 @@
       "date": "2026-08-31",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
+    },
+    "CAMEL-23315": {
+      "date": "2026-09-01",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "camel-exec allowControlHeaders gate (added Camel 4.20.0, commit 67ef42d8019) has no equivalent in pinned 4.8.8; DefaultExecBinding unconditionally honors CamelExecCommand* headers. Surfaced via CAMEL-24464 (4.23 docs clarification) in this run's commit sweep; underlying fix predates this run's window by ~4.5 months (backfill gap while Jira/GHSA/NVD have been blocked)."
+    },
+    "CAMEL-24464": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "docs-only clarification of allowControlHeaders (CAMEL-23315); real security-relevant ticket tracked separately as CAMEL-23315 (AFFECTS_US)"
+    },
+    "CAMEL-24394": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mcp-server/camel-ai-resource feature addition; not used_component"
+    },
+    "CAMEL-24407": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "simple language BigInteger predicate fix; NOT-SECURITY"
+    },
+    "CAMEL-24449": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-core saga LRA header fallback scoping fix; correctness/isolation bug, NOT-SECURITY"
+    },
+    "CAMEL-24495": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-salesforce-maven-plugin JWT/Client-Credentials auth; build-time tooling, not used_component"
+    },
+    "CAMEL-24496": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24497": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24503": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24504": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24508": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24516": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-base-engine TypeConverter null-after-stop reliability fix; NOT-SECURITY"
+    },
+    "CAMEL-24527": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-huggingface auth token propagation fix; not used_component"
+    },
+    "CAMEL-24533": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-weaviate data-quality fix; not used_component"
+    },
+    "CAMEL-24538": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-openai operator-precedence bug; not used_component"
+    },
+    "CAMEL-24540": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-huggingface model-revision propagation fix; not used_component"
+    },
+    "CAMEL-24545": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-zookeeper cluster-service shutdown deadlock fix; reliability bug not attacker-triggered, and module not a used_component"
+    },
+    "CAMEL-24551": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "GenAI structured error metadata feature; not used_component"
+    },
+    "CAMEL-24554": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-spring-boot 4.23 upgrade-guide doc entry; camel-spring-boot not a used_component"
+    },
+    "CAMEL-24556": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent observability test coverage; not used_component"
+    },
+    "CAMEL-24557": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "docs-only stale reference removal; NOT-SECURITY"
+    },
+    "CAMEL-24565": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-console typed Response record refactor; behaviour-preserving, NOT-SECURITY"
+    },
+    "CAMEL-24569": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-salesforce streaming API reconnect fix; not used_component"
+    },
+    "CAMEL-24573": {
+      "date": "2026-09-01",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "CXF-REST (JAXRS) immutable-list bug fix; module distinct from used SOAP-focused camel-cxf-* components"
     }
   }
 }
