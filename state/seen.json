@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-01T04:11:49Z",
+  "last_run": "2026-09-02T04:15:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -10,19 +10,19 @@
       "date": "2026-08-25",
       "verdict": "AFFECTS_US",
       "library": "apache-camel",
-      "note": "unconfirmed likely-alias of CAMEL-24487"
+      "note": "CORRECTED 2026-09-02 (was 'unconfirmed likely-alias of CAMEL-24487'): confirmed via WebSearch this CVE is 'Camel-Azure-Storage-Blob: the downloadBlobToFile operation built the local download target from the remote blob name without constraining it to the configured fileDir', affected range per the public advisory 4.19.0-4.22.0, fixed by CAMEL-23942 (commit 55fcbaf8bc, first in 4.22.0) and further hardened against symlink bypass by CAMEL-24548 (unreleased, main only as of this run). camel-azure-storage-blob IS a used_component. Our pinned 4.8.8 predates the advisory's stated lower bound (4.19.0) but was independently confirmed by direct source read to contain the identical unguarded 'new File(fileDir, client.getBlobName())' pattern with zero containment check (components/camel-azure/.../BlobOperations.java) -> AFFECTS_US regardless of the published range. See reports/2026-09-02.md for full backport assessment (not alias of CAMEL-24487, which is a separate remote-file/FTP finding)."
     },
     "CVE-2026-60093": {
       "date": "2026-08-25",
-      "verdict": "AFFECTS_US",
+      "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
-      "note": "unconfirmed likely-alias of CAMEL-24487"
+      "note": "CORRECTED 2026-09-02 (was AFFECTS_US, 'unconfirmed likely-alias of CAMEL-24487'): confirmed via WebSearch (mail-archive.com/announce@apache.org) this CVE is 'Camel-Azure-Storage-DataLake: the downloadToFile operation built the local download target from the remote path name without constraining it to the configured fileDir' -- camel-azure-storage-datalake is NOT in used_components (only camel-azure-files/camel-azure-storage-blob are) -> NOT_RELEVANT. Not an alias of CAMEL-24487 (which is the unrelated remote-file/FTP consumer containment fix). See reports/2026-09-02.md for the correction writeup."
     },
     "CVE-2026-66907": {
       "date": "2026-08-25",
-      "verdict": "AFFECTS_US",
+      "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
-      "note": "unconfirmed likely-alias of CAMEL-24487"
+      "note": "CORRECTED 2026-09-02 (was AFFECTS_US, 'unconfirmed likely-alias of CAMEL-24487'): confirmed via WebSearch (mail-archive.com/announce@apache.org) this CVE is 'Camel-Google-Storage: the consumer appended the remote object name to the configured downloadFileName directory without constraining the result' -- camel-google-storage is NOT in used_components -> NOT_RELEVANT. Not an alias of CAMEL-24487. See reports/2026-09-02.md."
     },
     "CVE-2026-71300": {
       "date": "2026-08-25",
@@ -2483,6 +2483,78 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "CXF-REST (JAXRS) immutable-list bug fix; module distinct from used SOAP-focused camel-cxf-* components"
+    },
+    "CAMEL-23942": {
+      "date": "2026-09-02",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "Base containment fix for camel-azure-storage-blob/datalake local downloads (commit 55fcbaf8bc, first in 4.22.0). This is the official upstream fix underlying CVE-2026-66906 (blob portion, used_component) -- see that entry for the full assessment. Merged into the CVE-2026-66906 finding, not double-counted."
+    },
+    "CAMEL-24548": {
+      "date": "2026-09-02",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "Symlink-aware hardening of the CAMEL-23942 containment check for camel-azure-storage-blob/datalake (commit 299fd7809, unreleased/main only as of this run). Merged into the CVE-2026-66906 finding (blob portion, used_component)."
+    },
+    "CAMEL-24549": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Companion ticket to CAMEL-24548 in the same commit (299fd7809); covers the camel-google-storage portion of the symlink hardening. camel-google-storage is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24576": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "dynamic-router-control: gates untrusted control-message predicates behind a new allowPredicateFromMessage option (default false), a real security hardening (SUSPECTED, no CVE). camel-dynamic-router / camel-dynamic-router-control are NOT used_components -> NOT_RELEVANT."
+    },
+    "CAMEL-24582": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "simple language: new equals/!equals operators. Feature addition, NOT_SECURITY."
+    },
+    "CAMEL-24574": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-google-bigquery docs clarification. Not a used_component."
+    },
+    "CAMEL-24579": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "DataFormat.marshal graph parameter annotated @Nullable. Cosmetic API-doc annotation only, no behaviour change. NOT_SECURITY."
+    },
+    "CAMEL-11114": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "New Cache EIP feature addition. NOT_SECURITY."
+    },
+    "CAMEL-24543": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-embeddingstore fix. Not a used_component."
+    },
+    "CAMEL-24541": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-djl fix. Not a used_component."
+    },
+    "CAMEL-24544": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-kserve/camel-tensorflow-serving fix. Not a used_component."
+    },
+    "CAMEL-24536": {
+      "date": "2026-09-02",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-embeddings fix. Not a used_component."
     }
   }
 }
