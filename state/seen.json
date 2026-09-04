@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-03T04:08:56Z",
+  "last_run": "2026-09-04T04:08:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2663,6 +2663,72 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "Milvus IT test flake stabilization; CI-only."
+    },
+    "CAMEL-23953": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Add batch operations for langchain4j embeddings; new feature, camel-langchain4j-embeddings is not a used_component."
+    },
+    "CAMEL-24558": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-main: warn on unconsumed camel.aiObservability.* properties (typo detection), matching existing camel.health/camel.errorRegistry pattern. Diff reviewed: diagnostic-logging only, no trust/validation change. camel-main is a used_component but this is NOT-SECURITY."
+    },
+    "CAMEL-24595": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "CassandraKeyValueRepository: atomic replace()/delete(key, expected) via LWT; part of CAMEL-24463 feature family. camel-cassandra is not a used_component."
+    },
+    "CAMEL-24606": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-google-firestore: document realtime change-type header; docs-only, not a used_component."
+    },
+    "CAMEL-24607": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent-api: CodeInjectionGuardrail distinct-injection-type counting fix (reduces false-positive blocking of legitimate templating text). Diff reviewed: relaxes an over-eager false-positive, does not weaken any real-injection check. Not a used_component regardless."
+    },
+    "CAMEL-24608": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent-api: enforce LanguageGuardrail minLanguageRatio; guardrail refinement, not a used_component."
+    },
+    "CAMEL-24610": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-web-search: guard against null maxResults (NPE fix); not a used_component."
+    },
+    "CAMEL-24611": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-chatscript: fix resetChat/chatUserName/socket-timeout/non-String body handling; functional bug fixes, not a used_component."
+    },
+    "CAMEL-24612": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent: fix content-converter charset/content-type normalization/stream close; functional bug fixes, not a used_component."
+    },
+    "CAMEL-24613": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent-api: LanguageGuardrail false-positive fix for plain English with allowMixed=false; not a used_component."
+    },
+    "CAMEL-24617": {
+      "date": "2026-09-04",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "TUI: add YAML DSL refactoring menu (Ctrl+R) to Source tab; dev-tool feature, not a used_component."
     }
   }
 }
