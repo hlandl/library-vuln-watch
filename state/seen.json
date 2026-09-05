@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-04T04:08:00Z",
+  "last_run": "2026-09-05T04:05:58Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2729,6 +2729,31 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "TUI: add YAML DSL refactoring menu (Ctrl+R) to Source tab; dev-tool feature, not a used_component."
+    },
+    "CAMEL-24628": {
+      "date": "2026-09-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24589": {
+      "date": "2026-09-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24614": {
+      "date": "2026-09-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24571": {
+      "date": "2026-09-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24560": {
+      "date": "2026-09-05",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
     }
   }
 }
