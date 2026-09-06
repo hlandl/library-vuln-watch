@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-05T04:05:58Z",
+  "last_run": "2026-09-06T04:09:09Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2754,6 +2754,66 @@
       "date": "2026-09-05",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
+    },
+    "CAMEL-24627": {
+      "date": "2026-09-06",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "GenericFileHelper.jailToLocalWorkDirectory symlink-escape hardening (commit 4df6808da, PR #26121, backported to 4.18.5/4.22.1/4.23.0, no CVE assigned as of this run). Reinforces the already-tracked CAMEL-24487 finding (AFFECTS_US since 2026-08-26): pinned 4.8.8's GenericFileHelper.java has zero containment check of any kind (re-verified this run via git show camel-4.8.8:...), so the underlying vuln class (writes escaping localWorkDirectory via ../ or symlink) is unchanged AFFECTS_US. Updates the CAMEL-24487 backport recommendation: implement the new from-scratch containment check as symlink-resolving (resolveExistingPathSegments pattern) from the start, not lexical-only, since upstream itself had to re-patch the lexical-only version ~6 weeks after introducing it. camel-file/camel-ftp/camel-azure-files are used_components. See reports/2026-09-06.md."
+    },
+    "CAMEL-24377": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-base: new asJSon()/toJSon() default methods on the CamelEvent SPI for JSON event serialization. New feature, not a fix; no vulnerability."
+    },
+    "CAMEL-24539": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-openai: fixes mis-typed storeFullResponse header for embeddings/audio operations. Not a used_component."
+    },
+    "CAMEL-24559": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-openai: extends GenAiObservability instrumentation to embeddings/moderation/responses ops. Not a used_component."
+    },
+    "CAMEL-24566": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang-plugin/CLI: auto-discovers GenAI deps. Not a used_component."
+    },
+    "CAMEL-24601": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-smb: test-only flakiness fix in SmbComponentConnectionIT. Not a used_component."
+    },
+    "CAMEL-24615": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jpa: test-only fix for Hibernate profile test failures. Not a used_component."
+    },
+    "CAMEL-24622": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-infinispan: fixes recovery methods operating on wrong key space. Not a used_component."
+    },
+    "CAMEL-24623": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-infinispan: fixes silent-null QUERY-op error reporting. Not a used_component."
+    },
+    "CAMEL-24624": {
+      "date": "2026-09-06",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-infinispan: catalog/lifecycle/efficiency cleanups. Not a used_component."
     }
   }
 }
