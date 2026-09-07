@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-06T04:09:09Z",
+  "last_run": "2026-09-07T04:04:47Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2814,6 +2814,108 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "camel-infinispan: catalog/lifecycle/efficiency cleanups. Not a used_component."
+    },
+    "apache/camel@de59a8a2e42b3287976d05255554d09587135258": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-tahu: fix static endpoint cache leaking across tests. Test-only; not a used_component."
+    },
+    "apache/camel@3d9eb4bce3f8972e497f7fd4a40d1bbe2614ccb9": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-tahu: fix static endpoint cache leaking across tests (duplicate of de59a8a2e). Test-only; not a used_component."
+    },
+    "apache/camel@b44ecb02bef28e4570f6ba7a57ae58bfdee138a5": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-opentelemetry-metrics: fix ITs broken by OTel console/logging exporter split. Test-only; not a used_component."
+    },
+    "apache/camel@3626194f5e3109a8580eed29d9329b0ef8154562": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-browse: fix BrowsableQueueTest queue accumulation across retries. Test-suite fix, no trust-boundary change; camel-browse is a used_component but this is not a vulnerability."
+    },
+    "apache/camel@44e9db285d4044759eba9ba6a22d0e2d712ce366": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "docs: remove broken xref to camel-spring-boot starter docs in upgrade guide. Doc-only."
+    },
+    "apache/camel@c3e178ac2d33a2eb991fed5ee1e6a1d3a5e5a569": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "docs: fix absolute camel-spring-boot URL to relative xref in upgrade guide. Doc-only."
+    },
+    "apache/camel@024d9388e15d0d01dd4ed22ed6a4f09fb75896bf": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "docs: fix Antora doc xref errors and missing attribute warnings. Doc-only."
+    },
+    "apache/camel@2cb57c3e6269f2a03f67b9147a8882a87ba740a6": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump maven-surefire-plugin-version 3.5.6->3.6.0. Routine build-tool bump, no CVE referenced; out of used_components scope."
+    },
+    "apache/camel@ac09a0c9a1da9721eef5ff757075fcf618ee2658": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump debezium-version 3.6.1.Final->3.6.2.Final. Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@ca3624c6d5fcba88f5258cc0ad5564e00a08a1d9": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump com.openai:openai-java 4.54.0->4.55.0. Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@d8b8bfbaf3e5963bf54de2d03ed07e4750aafd8a": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump org.l2x6.cq:cq-alias-fastinstall-quickly-extension. Routine build-tool bump, no CVE referenced."
+    },
+    "apache/camel@93b876cda28627a3f15150c7674e6b4b923007ab": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump org.apache.fory:fory-core 1.7.0->1.7.1. Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@50494cb134afbc6ea5bf80718978f942e98a6ecb": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump jline-version 4.4.0->4.4.1. Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@171116f91bfa111e6484bdf40577fb542b95b894": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump the elasticsearch client dependency group (2 updates). Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@89f6c35d7e90ae39b30bc61417d0b248e7790f80": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "chore(deps): bump aws-java-sdk2-version 2.54.7->2.54.9. Routine dep bump, no CVE referenced; third-party, out of scope."
+    },
+    "apache/camel@b9649aafde2c743723b78edf753c56f1eecb40d7": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-docling: honor the operationId URI path segment to select the operation. Functional routing fix; camel-docling not a used_component."
+    },
+    "apache/camel@85365d3f7ab70232c211e7a95bde1576f443661c": {
+      "date": "2026-09-07",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Restore throttling of jobs per node on Jenkins. CI infra-only, not shipped code."
     }
   }
 }
