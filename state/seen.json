@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-07T04:04:47Z",
+  "last_run": "2026-09-08T04:07:38Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2916,6 +2916,66 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "Restore throttling of jobs per node on Jenkins. CI infra-only, not shipped code."
+    },
+    "CAMEL-24474": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-as2: adds TLS support for asynchronous MDN delivery (previously refused outright for https addresses). Feature addition, not a fix; camel-as2 not a used_component."
+    },
+    "CAMEL-24602": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "CI tooling: per-module build-elapsed-time reporting in PR test comments. NOT-SECURITY."
+    },
+    "CAMEL-24605": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-fop: FopProducer TransformerFactory now sets ACCESS_EXTERNAL_DTD/ACCESS_EXTERNAL_STYLESHEET to '' (commit 209c67a851), blocking external DTD/stylesheet resolution -- a real XXE-class hardening (SUSPECTED, no CVE assigned). camel-fop is NOT in used_components -> NOT_RELEVANT despite being security-relevant. See reports/2026-09-08.md."
+    },
+    "CAMEL-24618": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Test-only fix for flaky SpringFileAntPathMatcherRemoteFileFilterTest (state contamination + timing race). Touches camel-file/camel-spring test code but is a reliability fix, not a vulnerability."
+    },
+    "CAMEL-24620": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jackson3: adds enable/disable support for Jackson 3 DatatypeFeature enums. Feature addition; camel-jackson3 (distinct from camel-jackson) not a used_component."
+    },
+    "CAMEL-24625": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-platform-http: adds stripUriPrefix option for path-based reverse proxies. Feature addition; camel-platform-http not a used_component."
+    },
+    "CAMEL-24626": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-master: fixes a lock-inversion/task-registry leak in leadership handling (follow-up to CAMEL-24583). Correctness fix, not a vulnerability; camel-master not a used_component."
+    },
+    "CAMEL-24631": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel doctor/TUI: Ollama detection support. NOT-SECURITY."
+    },
+    "CAMEL-24632": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-http: fixes proxy-connection scheme wrongly defaulting to https for https targets (should always be a plain-HTTP CONNECT tunnel). Configuration-default correctness fix, not a vulnerability; camel-http not a used_component."
+    },
+    "CAMEL-24634": {
+      "date": "2026-09-08",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "New component camel-opa (Open Policy Agent policy evaluation). Feature addition, new module not in used_components."
     }
   }
 }
