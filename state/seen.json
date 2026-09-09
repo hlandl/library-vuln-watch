@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-08T04:07:38Z",
+  "last_run": "2026-09-09T04:08:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -2976,6 +2976,105 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "New component camel-opa (Open Policy Agent policy evaluation). Feature addition, new module not in used_components."
+    },
+    "CAMEL-24427": {
+      "date": "2026-09-09",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CAMEL-24425": {
+      "date": "2026-09-09",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel"
+    },
+    "CVE-2026-80219": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "hawtio-operator (Red Hat build of Camel - HawtIO 4) OAuth redirect-URI flaw; different product/ecosystem, not org.apache.camel Maven artifacts, no used_component involved"
+    },
+    "CAMEL-24424": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-vertx-http outbound header filter hardening; component not in used_components"
+    },
+    "CAMEL-24658": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24352": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24653": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24655": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-coap header-injection test hardening (test-only); component not in used_components"
+    },
+    "CAMEL-24640": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24621": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24647": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24656": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24643": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24645": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24648": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24542": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-22981": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24636": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-core SecretRotationAware SPI (feature); relevant only paired with a vault component, none of which are in used_components"
+    },
+    "CAMEL-23395": {
+      "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
     }
   }
 }
