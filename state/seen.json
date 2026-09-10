@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-09T04:08:00Z",
+  "last_run": "2026-09-10T04:03:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -3073,6 +3073,42 @@
     },
     "CAMEL-23395": {
       "date": "2026-09-09",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24535": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24603": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24630": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24635": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24644": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel"
+    },
+    "CAMEL-24651": {
+      "date": "2026-09-10",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NPE regression in ExceptionHelper.stackTraceToString() introduced by refactor f9048eb0a822 (unreleased); our pinned 4.8.8 predates that refactor and still carries the original null-check guard at the call site, so the bug cannot occur on 4.8.8 -- NOT-SECURITY and not applicable regardless"
+    },
+    "CAMEL-24659": {
+      "date": "2026-09-10",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
     }
