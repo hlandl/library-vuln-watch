@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-10T04:03:00Z",
+  "last_run": "2026-09-11T04:03:00Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -3111,6 +3111,90 @@
       "date": "2026-09-10",
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel"
+    },
+    "CAMEL-23954": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-langchain4j-agent: adds optional moderation-model support (feature). NOT-SECURITY; camel-langchain4j-agent is not a used_component."
+    },
+    "CAMEL-24435": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-as2: fixes per-request async-MDN HttpContext state (RECIPIENT_ADDRESS/ASYNCHRONOUS_MDN/CURRENT_CONSUMER_CONFIG) not being cleared between requests on a pooled connection -- SUSPECTED genuine security-relevant defect (cross-request state leak), but camel-as2 is not a used_component -> NOT_RELEVANT regardless. See reports/2026-09-11.md."
+    },
+    "CAMEL-24597": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mail: fixes double part.getContent() call causing flaky POP3 behavior. NOT-SECURITY (functional bug); camel-mail is a used_component but this is not a vulnerability."
+    },
+    "CAMEL-24598": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "test-only flaky test fix (JGroupsRaftProducerTest); camel-jgroups-raft not a used_component."
+    },
+    "CAMEL-24600": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "test-only flaky test fix (JmsConcurrentConsumerInOnlyTest timeout); NOT-SECURITY."
+    },
+    "CAMEL-24663": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang-plugin-tui feature (ACP coding-agent provider); not a used_component."
+    },
+    "CAMEL-24665": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-azure-servicebus feature (maxConcurrentSessions); not a used_component."
+    },
+    "CAMEL-24666": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-core-catalog tooling/DX feature (edit-distance option suggestions); NOT-SECURITY."
+    },
+    "CAMEL-24668": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mllp bugfix (pipelined HL7 messages dropped); not a used_component."
+    },
+    "CAMEL-24669": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-groovy feature/bugfix (Jackson 3 node support); not a used_component."
+    },
+    "CAMEL-24677": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-smooks: XXE (CWE-611) hardening fix -- default XMLReader resolved external entities unlike other Camel XML components; new allowExternalEntities option (default false). SUSPECTED genuine vulnerability class, but camel-smooks is not a used_component -> NOT_RELEVANT. See reports/2026-09-11.md."
+    },
+    "CAMEL-24678": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang tooling fix (infra ps lists every instance); not a used_component."
+    },
+    "CAMEL-24679": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang-plugin-tui feature (MCP server tool registry launcher); not a used_component."
+    },
+    "CVE-2026-45799": {
+      "date": "2026-09-11",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Third-party dependency CVE (com.squareup.wire:wire-runtime), pinned in camel-aws2-kinesis's POM via apache/camel@76a4eef4a (PR #26243). Out of scope: (1) camel-aws2-kinesis is not a used_component, (2) third-party transitive deps are explicitly out of this watch's scope per config/libraries.yaml (handled by SBOM/CVE scanning). Upstream commit message notes Camel itself never reaches the vulnerable code path."
     }
   }
 }
