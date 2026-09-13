@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-12T04:05:38Z",
+  "last_run": "2026-09-13T04:07:01Z",
   "seen": {
     "CAMEL-24487": {
       "date": "2026-08-25",
@@ -3239,6 +3239,24 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "camel-quickjs: recycles QuickJS engine on memory/eval-count exhaustion to prevent OOM under sustained load. SUSPECTED resource-exhaustion/DoS hardening (no CVE), estimated MEDIUM if in scope. camel-quickjs is NOT a used_component -> NOT RELEVANT."
+    },
+    "CVE-2026-80351": {
+      "date": "2026-09-13",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Apache Camel K (the Kubernetes operator, apache/camel-k repo, own 2.x versioning) eval-injection vulnerability (CWE-95): tenant-controlled Maven repository configuration content is dynamically evaluated inside the operator pod, allowing arbitrary code execution with operator privileges. Affects Camel K 2.0.0-2.9.3 and 2.10.1-2.10.2, fixed in 2.9.3/2.10.2/2.11.0. Disclosed 2026-09-10, CVSS 9.8. NOT_RELEVANT: Camel K is a separate Apache project/deployable (a K8s operator) from Camel core (org.apache.camel, apache/camel, pinned 4.8.8) that this watch tracks; it is not in used_components and is not deployed by us."
+    },
+    "CVE-2026-80352": {
+      "date": "2026-09-13",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Apache Camel K (Kubernetes operator, apache/camel-k repo) YAML-injection vulnerability (CWE-94) in custom-resource configuration (Master trait serviceAccountName handling): an authorized custom-resource author can inject arbitrary Kubernetes objects created with the operator's privileges. Affects Camel K 2.0.0-2.9.3 and 2.10.1-2.10.2, fixed in 2.9.3/2.10.2/2.11.0. Disclosed 2026-09-10, CVSS 9.8. NOT_RELEVANT: same reasoning as CVE-2026-80351 -- Camel K is a distinct deployable from the Camel core library this watch tracks; not a used_component, not deployed by us."
+    },
+    "GHSA-f755-xp6r-8q84": {
+      "date": "2026-09-13",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-43866"
     }
   }
 }
