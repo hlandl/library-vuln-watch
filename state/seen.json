@@ -1,6 +1,12 @@
 {
-  "last_run": "2026-09-13T04:07:01Z",
+  "last_run": "2026-09-14T04:07:05Z",
   "seen": {
+    "CVE-2026-80354": {
+      "date": "2026-09-14",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Apache Camel K (not Camel core): authorization bypass (CWE-639) in Builder trait mavenProfiles ValueSources secret resolution, affects camel-k 2.0.0-2.9.3/2.10.1-2.10.2, fixed 2.9.3/2.10.2/2.11.0. Same product family as CVE-2026-80351/80352 (last run). camel-k operator is not deployed/used and not a used_component."
+    },
     "CAMEL-24487": {
       "date": "2026-08-25",
       "verdict": "AFFECTS_US",
