@@ -1,6 +1,19 @@
 {
-  "last_run": "2026-09-14T04:07:05Z",
+  "last_run": "2026-09-15T04:07:27Z",
   "seen": {
+    "CAMEL-24717": {
+      "date": "2026-09-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix found via GitHub repo sweep (commit caf68b54f26e2a732664db75099fe7ac52564dd6, 2026-09-14): camel-opa producer health check embedded the configured bearerToken in its health-check id, exposing the credential in health-check output; id no longer includes the token. camel-opa is NOT a used_component (not present in config/libraries.yaml used_components list) -> NOT_RELEVANT regardless of severity."
+    },
+    "GHSA-hh8r-75r6-qrg9": {
+      "date": "2026-09-15",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49042",
+      "note": "New GHSA id surfaced this run for an already-tracked finding: 'Apache Camel-Langchain4j-Tools: Tool argument headers are not filtered against declared parameters' (CWE-20), affected range 4.8.0-4.18.2 / 4.19.0-4.20.0, fixed 4.18.3/4.21.0. Same issue as CVE-2026-49042 (tracked since 2026-07-23, NOT_RELEVANT). camel-langchain4j-tools is NOT a used_component."
+    },
     "CVE-2026-80354": {
       "date": "2026-09-14",
       "verdict": "NOT_RELEVANT",
