@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-15T04:07:27Z",
+  "last_run": "2026-09-16T04:06:30Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3276,6 +3276,43 @@
       "verdict": "AFFECTS_US",
       "library": "apache-camel",
       "alias_of": "CVE-2026-43866"
+    },
+    "CAMEL-24725": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix via GitHub repo sweep (commit 998a60666f72e53d62b51c5cab249f3be00ed860, 2026-09-15): applies the shared JEP-290 ObjectInputFilter (DeserializationFilterHelper) to KeyValueRepositoryHelper, which previously used a plain ObjectInputStream. KeyValueRepositoryHelper and its per-backend classes (touches camel-cassandraql, camel-hazelcast, camel-infinispan, camel-jpa, camel-kafka, camel-redis, camel-sql, core/camel-support) are new in the unreleased 4.23 (feature CAMEL-24463, also unreleased) -> do not exist in our pinned 4.8.8 regardless of camel-kafka/camel-support being used_components -> NOT_RELEVANT."
+    },
+    "CAMEL-24730": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix via GitHub repo sweep (commit 1d2cba7637072aece5aca8f83a6cdb904e08e1e8, 2026-09-15): camel-spiffe SpiffeProducer let inbound headers override the validated JWT-SVID audience and the operation, letting validateJwtSvid accept a token minted for another service and letting a validator endpoint be turned into a minter. camel-spiffe is new in the unreleased 4.23.0 and is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24731": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) companion hardening commit to CAMEL-24730 (commit cef7fab36fee2d852add3e6c4f0fde2406507be6, 2026-09-15): camel-spiffe registers acceptAnySpiffeId with the security policy framework. camel-spiffe NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24732": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix via GitHub repo sweep (commit 563609bc1384098420f6a46ec127f5c5c8b8f636, 2026-09-15): camel-opa withholds credential headers from the includeHeaders wildcard (separate mechanism from CAMEL-24717's health-check-id fix). camel-opa NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24292": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix via GitHub repo sweep (commit 6daeefed722014fd3e429479c4e480228fe54b8a, PR #26268, 2026-09-15): camel-sql/camel-sql-stored no longer let an inbound header override the endpoint-configured query/template by default (previously exploitable as SSRF/local-file-read via file:/http:/classpath: header-supplied resource scheme); new allowQueryFromHeader/allowTemplateFromHeader opt-in options added. Neither camel-sql nor camel-sql-stored is a used_component -> NOT_RELEVANT."
+    },
+    "GHSA-q8ch-jx67-q52x": {
+      "date": "2026-09-16",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-45760",
+      "note": "New GHSA id surfaced this run for an already-tracked finding: Camel K Build-resource cross-namespace authorization bypass (Externally Controlled Reference + Authorization Bypass Through User-Controlled Key), affected 2.0.0-2.8.0/2.9.0-2.9.1/2.10.0, fixed 2.8.1/2.9.2/2.10.1. Same issue as CVE-2026-45760 (tracked since 2026-07-23, NOT_RELEVANT). Camel K operator not deployed/used."
     }
   }
 }
