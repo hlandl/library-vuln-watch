@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-16T04:06:30Z",
+  "last_run": "2026-09-17T04:07:00Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3313,6 +3313,48 @@
       "library": "apache-camel",
       "alias_of": "CVE-2026-45760",
       "note": "New GHSA id surfaced this run for an already-tracked finding: Camel K Build-resource cross-namespace authorization bypass (Externally Controlled Reference + Authorization Bypass Through User-Controlled Key), affected 2.0.0-2.8.0/2.9.0-2.9.1/2.10.0, fixed 2.8.1/2.9.2/2.10.1. Same issue as CVE-2026-45760 (tracked since 2026-07-23, NOT_RELEVANT). Camel K operator not deployed/used."
+    },
+    "CAMEL-24734": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix via GitHub repo sweep: camel-spiffe validateJwtSvid used audiences[0] only, silently enforcing a narrower audience check than configured (companion to CAMEL-24730, tracked 2026-09-15). camel-spiffe is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24754": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) silent security fix, found by manual review (not keyword grep): camel-opa cleared the OPA verdict exchange property on entry so a verdict claimed by an inbound message could not survive into the decision on a failed evaluation -- prior behavior let a failed evaluation inherit an attacker-influenced 'allow' (authorization-bypass-shaped). camel-opa is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24768": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NOT-SECURITY: camel-huaweicloud-dms/-iam mandatory-field and proxy-port validation guards were ineffective (logic bug), plus a fragile exchange-property cast -- functional bug, not an attacker-facing bypass. Neither component is a used_component."
+    },
+    "CAMEL-24736": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NOT-SECURITY: camel-opa adds a missing readiness health check for OpaSecurityPolicy (observability gap, not a vulnerability). camel-opa is NOT a used_component."
+    },
+    "CAMEL-24737": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NOT-SECURITY: camel-opa allowKey now accepts a dotted path into a nested decision document, and raises an unreadable-decision log from DEBUG to WARN (usability/diagnostics fix, not a vulnerability fix). camel-opa is NOT a used_component."
+    },
+    "CAMEL-24741": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NOT-SECURITY: camel-opa adds an optional in-process WASM evaluation mode alongside the existing REST client (new feature; both engines fail closed identically per commit message, but this is new-feature design, not a fix). camel-opa is NOT a used_component."
+    },
+    "CAMEL-24748": {
+      "date": "2026-09-17",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "NOT-SECURITY: catalog/documentation metadata cleanup across camel-azure-storage-blob, camel-git, jt400, xmpp, huggingface, salesforce, netty/netty-http, azure-storage-datalake, google-secret-manager, google-storage, web3j, grpc -- operation/enum metadata now derived from the real definitions instead of stale hardcoded lists. Touches used_component camel-azure-storage-blob by name, but verified via direct diff read (BlobConfiguration.java) that only a stale @UriParam enums= catalog annotation was removed; BlobOperationsDefinition and runtime behavior unchanged -> NOT_RELEVANT."
     }
   }
 }
