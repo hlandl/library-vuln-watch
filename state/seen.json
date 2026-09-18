@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-17T04:07:00Z",
+  "last_run": "2026-09-18T04:07:00Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3355,6 +3355,26 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "NOT-SECURITY: catalog/documentation metadata cleanup across camel-azure-storage-blob, camel-git, jt400, xmpp, huggingface, salesforce, netty/netty-http, azure-storage-datalake, google-secret-manager, google-storage, web3j, grpc -- operation/enum metadata now derived from the real definitions instead of stale hardcoded lists. Touches used_component camel-azure-storage-blob by name, but verified via direct diff read (BlobConfiguration.java) that only a stale @UriParam enums= catalog annotation was removed; BlobOperationsDefinition and runtime behavior unchanged -> NOT_RELEVANT."
+    },
+    "GHSA-6qw3-4796-5984": {
+      "date": "2026-09-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-40859",
+      "note": "New GHSA id surfaced this run for an already-tracked finding: camel-vertx-http/camel-netty-http unsafe ObjectInputStream deserialization of HTTP response bodies (transferException), CVSS 8.1, affected 4.15.0-4.18.0, fixed 4.18.3. Same issue as CVE-2026-40859 (tracked since 2026-07-22, NOT_RELEVANT). camel-vertx-http/camel-netty-http are NOT used_components."
+    },
+    "CVE-2023-34442": {
+      "date": "2026-09-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "GHSA-6g2w-257v-3c9f",
+      "note": "CVE id surfaced this run for an already-tracked finding: camel-jira FileConverter temp-file information disclosure (CVSS 3.3), affected 3.x<=3.14.8/3.18.x<=3.18.7/3.20.x<=3.20.5/4.x<=4.0.0-M3, fixed 3.14.9/3.18.8/3.20.6/4.0.0-M1. Same issue as GHSA-6g2w-257v-3c9f (tracked since 2026-07-15, NOT_RELEVANT). camel-jira is NOT a used_component; our pinned 4.8.8 also postdates every fixed version listed."
+    },
+    "CAMEL-24780": {
+      "date": "2026-09-18",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-kafka (used_component) transactional producer: fixed a leaking half-begun transaction and a skipped async callback on a failed beginTransaction(). Reviewed diff (KafkaProducer.java): reorders startKafkaTransaction() inside the existing try block and beginTransaction() before uow.beginTransactedBy() so a broker-side begin failure completes the async callback and never leaves the unit-of-work flagged transacted without a synchronization. NOT-SECURITY (reliability/correctness fix under a failure path; no unauthorized access, injection, bypass, or disclosure) -> NOT_RELEVANT despite camel-kafka being used."
     }
   }
 }
