@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-18T04:07:00Z",
+  "last_run": "2026-09-19T04:07:00Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3375,6 +3375,69 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "camel-kafka (used_component) transactional producer: fixed a leaking half-begun transaction and a skipped async callback on a failed beginTransaction(). Reviewed diff (KafkaProducer.java): reorders startKafkaTransaction() inside the existing try block and beginTransaction() before uow.beginTransactedBy() so a broker-side begin failure completes the async callback and never leaves the unit-of-work flagged transacted without a synchronization. NOT-SECURITY (reliability/correctness fix under a failure path; no unauthorized access, injection, bypass, or disclosure) -> NOT_RELEVANT despite camel-kafka being used."
+    },
+    "CAMEL-23321": {
+      "date": "2026-09-19",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-40860",
+      "note": "Underlying Jira ticket for CVE-2026-40860 (camel-jms/camel-sjms unguarded ObjectMessage deserialization), surfaced today via the GitHub repo sweep/WebSearch. Same finding, same verdict as CVE-2026-40860 (tracked since 2026-07-23). No new action -- see reports/2026-07-23.md for full backport assessment."
+    },
+    "CAMEL-23313": {
+      "date": "2026-09-19",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-40453",
+      "note": "Underlying Jira ticket for CVE-2026-40453 (incomplete fix of CVE-2025-27636: non-HTTP HeaderFilterStrategy case-variant header injection in camel-jms/camel-sjms/camel-coap/camel-google-pubsub). Same finding, same verdict as CVE-2026-40453 (tracked since 2026-08-06). No new action -- see reports/2026-08-06.md for full backport assessment."
+    },
+    "CAMEL-23576": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-48206",
+      "note": "Underlying Jira ticket for CVE-2026-48206 (camel-jira non-Camel-prefixed Exchange headers bypass HttpHeaderFilterStrategy). camel-jira is not a used_component -> NOT_RELEVANT, same as CVE-2026-48206 (tracked since 2026-08-06)."
+    },
+    "CVE-2026-93494": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty STOMP codec: frame body missing terminating null byte causes a memory leak. Published under Red Hat build of Apache Camel for Spring Boot 4 product bucket, but the defect is in Netty (netty-codec-stomp), a transitive dependency, not any camel-* artifact; camel-netty/camel-stomp are not used_components. Out of scope per config/libraries.yaml scope note (transitive deps handled by regular SBOM/CVE scanning)."
+    },
+    "CVE-2026-93560": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty STOMP codec: content-length long-to-int truncation causes an infinite decode loop (CVSS 7.5). Same Red Hat Camel-for-Spring-Boot batch as CVE-2026-93494; defect is in Netty (netty-codec-stomp), transitive dependency, out of scope; camel-netty/camel-stomp not used_components."
+    },
+    "CVE-2026-93561": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty Memcache binary codec signed/unsigned type mismatch causes frame desynchronization / response smuggling. Same Red Hat batch; defect is in Netty (netty-codec-memcache), transitive dependency, out of scope; camel-memcache not a used_component."
+    },
+    "CVE-2026-93563": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty SmtpResponseDecoder unbounded multi-line accumulation exhausts memory (CVSS 7.5). Same Red Hat batch; defect is in Netty (netty-codec-smtp), transitive dependency, out of scope; camel-mail uses javax.mail, not netty-codec-smtp."
+    },
+    "CVE-2026-93572": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty Redis RedisArrayAggregator eagerly allocates new ArrayList<>(length) per nested RESP array header before validating against actual child count -- ~12KB crafted input can reserve >1GB capacity. Same Red Hat batch; defect is in Netty (netty-codec-redis), transitive dependency, out of scope; no used_component affected."
+    },
+    "CVE-2026-93576": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty netty-codec-smtp CRLF-sequence validation gap in the SMTP command-name field, incomplete fix of CVE-2025-59419 (CVSS 7.5). Same Red Hat batch; transitive Netty dependency, out of scope; camel-mail does not use netty-codec-smtp."
+    },
+    "CVE-2026-93578": {
+      "date": "2026-09-19",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Netty OCSP client implementation omits the Extended Key Usage check, allowing acceptance of a certificate that should be treated as revoked (CVSS 5.9). Same Red Hat batch; transitive Netty dependency (netty-handler), out of scope; no used_component affected."
     }
   }
 }
