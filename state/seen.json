@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-19T04:07:00Z",
+  "last_run": "2026-09-20T04:10:54Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3438,6 +3438,181 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "Netty OCSP client implementation omits the Extended Key Usage check, allowing acceptance of a certificate that should be treated as revoked (CVSS 5.9). Same Red Hat batch; transitive Netty dependency (netty-handler), out of scope; no used_component affected."
+    },
+    "GHSA-v7h8-xhh6-gfj4": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-78329",
+      "note": "New GHSA id for already-tracked CVE-2026-78329 (Camel-Undertow header filter strategy defaulted to base HttpHeaderFilterStrategy). Same verdict carried over."
+    },
+    "GHSA-vvwm-3j43-7pfm": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-63621",
+      "note": "New GHSA id for already-tracked CVE-2026-63621 (camel-knative CloudEvent header-filter gap). Same verdict carried over."
+    },
+    "GHSA-cx47-qxp5-mmh2": {
+      "date": "2026-09-20",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-59230",
+      "note": "New GHSA id for already-tracked CVE-2026-59230 (camel-mail MimeMultipart headersInline header copy without filter). Same verdict carried over (CVE-2026-59230 itself alias_of CAMEL-24419)."
+    },
+    "GHSA-m5r8-w65q-8wjf": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-71300",
+      "note": "New GHSA id for already-tracked CVE-2026-71300 (camel-atmosphere-websocket header injection); not a used_component. Same verdict carried over."
+    },
+    "GHSA-7jwc-q3fj-c9pq": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-60093",
+      "note": "New GHSA id for already-tracked CVE-2026-60093 (camel-azure-storage-datalake path traversal); not a used_component. Same verdict carried over."
+    },
+    "GHSA-2x37-89hj-2j95": {
+      "date": "2026-09-20",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-66906",
+      "note": "New GHSA id for already-tracked CVE-2026-66906 (camel-azure-storage-blob downloadBlobToFile path traversal); camel-azure-storage-blob IS a used_component. Same verdict carried over."
+    },
+    "GHSA-f78g-9385-qxqj": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-66907",
+      "note": "New GHSA id for already-tracked CVE-2026-66907 (camel-google-storage path traversal); not a used_component. Same verdict carried over."
+    },
+    "GHSA-fpm2-m4qq-wghr": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-66908",
+      "note": "New GHSA id for already-tracked CVE-2026-66908 (camel-platform-http-main JWT iss/aud not validated); not a used_component. Same verdict carried over."
+    },
+    "GHSA-5g68-f6xg-vf2r": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-46588",
+      "note": "New GHSA id for already-tracked CVE-2026-46588 (camel-couchdb header filter bypass); not a used_component. Same verdict carried over."
+    },
+    "GHSA-46jf-c9vx-hh79": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-46587",
+      "note": "New GHSA id for already-tracked CVE-2026-46587 (camel-couchbase header filter bypass); not a used_component. Same verdict carried over."
+    },
+    "GHSA-hjg2-f45w-c566": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-56139",
+      "note": "New GHSA id for already-tracked CVE-2026-56139 (camel-undertow muteException stack trace disclosure); same verdict carried over."
+    },
+    "GHSA-w2v8-8q6c-3rhr": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-56140",
+      "note": "New GHSA id for already-tracked CVE-2026-56140 (camel-aws2-sns defense-in-depth header filter hardening, no exploit path); same verdict carried over."
+    },
+    "GHSA-42q5-xw42-xf9g": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49365",
+      "note": "New GHSA id for already-tracked CVE-2026-49365 (camel-netty-http muteException stack trace disclosure); same verdict carried over."
+    },
+    "GHSA-rcvm-6r79-cf4r": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-55993",
+      "note": "New GHSA id for already-tracked CVE-2026-55993 (camel-atmosphere-websocket query-param header injection); same verdict carried over."
+    },
+    "GHSA-pw9q-pq7c-rfqw": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-55994",
+      "note": "New GHSA id for already-tracked CVE-2026-55994 (camel-iggy header injection SSRF); not a used_component. Same verdict carried over."
+    },
+    "GHSA-64gv-6cq2-45jr": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-48206",
+      "note": "New GHSA id for already-tracked CVE-2026-48206 (camel-jira header filter bypass); not a used_component. Same verdict carried over."
+    },
+    "GHSA-463m-2hr2-q2j7": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49097",
+      "note": "New GHSA id for already-tracked CVE-2026-49097 (camel-irc header naming bypass); not a used_component. Same verdict carried over."
+    },
+    "GHSA-583r-f84w-33g7": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49086",
+      "note": "New GHSA id for already-tracked CVE-2026-49086 (camel-dapr routing header injection); not a used_component. Same verdict carried over."
+    },
+    "GHSA-mm84-qvjh-hcj7": {
+      "date": "2026-09-20",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49098",
+      "note": "New GHSA id for already-tracked CVE-2026-49098 (camel-kafka topic override via unfiltered kafka.* headers); camel-kafka IS a used_component. Same verdict carried over."
+    },
+    "GHSA-gcc7-c8mp-34qx": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-49099",
+      "note": "New GHSA id for already-tracked CVE-2026-49099 (camel-salesforce header filter bypass); not a used_component. Same verdict carried over."
+    },
+    "GHSA-cmc3-hr79-8mmv": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-46456",
+      "note": "New GHSA id for already-tracked CVE-2026-46456 (camel-aws2-sqs inbound header filter gap); not a used_component. Same verdict carried over."
+    },
+    "GHSA-hgg5-gp4c-gpcg": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-46726",
+      "note": "New GHSA id for already-tracked CVE-2026-46726 (camel-vertx-websocket query/path param header injection); not a used_component. Same verdict carried over."
+    },
+    "GHSA-3r9g-8jw6-fcwx": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-80354",
+      "note": "New GHSA id for already-tracked CVE-2026-80354 (Apache Camel K authorization bypass); Camel K is not deployed/used. Same verdict carried over."
+    },
+    "GHSA-q6c4-485h-g4m5": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-80352",
+      "note": "New GHSA id for already-tracked CVE-2026-80352 (Apache Camel K YAML injection); Camel K is not deployed/used. Same verdict carried over."
+    },
+    "GHSA-x48w-5g24-c9q7": {
+      "date": "2026-09-20",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "alias_of": "CVE-2026-80351",
+      "note": "New GHSA id for already-tracked CVE-2026-80351 (Apache Camel K eval injection); Camel K is not deployed/used. Same verdict carried over."
     }
   }
 }
