@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-21T04:05:34Z",
+  "last_run": "2026-09-22T04:10:08Z",
   "seen": {
     "CAMEL-24717": {
       "date": "2026-09-15",
@@ -3613,6 +3613,72 @@
       "library": "apache-camel",
       "alias_of": "CVE-2026-80351",
       "note": "New GHSA id for already-tracked CVE-2026-80351 (Apache Camel K eval injection); Camel K is not deployed/used. Same verdict carried over."
+    },
+    "CAMEL-23747": {
+      "date": "2026-09-22",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "camel-mail MailBinding.populateMailMessage()/appendHeadersFromCamelMessage() unconditionally let inbound Camel message headers override the endpoint-configured recipients (To/Cc/Bcc), From/Sender, Subject, and Reply-To. Confirmed via direct source diff: pinned camel-4.8.8 has NO useHeaderRecipients/useHeaderFrom/useHeaderSubject/useHeaderReplyTo option at all (unconditional override); fixed in camel-4.21.0 (PR #24194, commit e027f18) by adding these four boolean flags (default false) as guards. No CVE/GHSA assigned (SUSPECTED per rubric, but upstream explicitly frames it as security hardening). Rediscovered via CAMEL-24848 (2026-09-21 doc-fix PR referencing it). camel-mail IS a used_component. Distinct code path from CVE-2026-46584/CAMEL-23522 (JavaMail session properties via mail.smtp.* headers in MailProducer.getSender()) -- not a duplicate, separate finding/backport. See reports/2026-09-22.md for full backport assessment (clean/low-drift)."
+    },
+    "CAMEL-24800": {
+      "date": "2026-09-22",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel",
+      "note": "DefaultPooledExchange(Exchange parent) reuses the parent ResetableClock instead of creating its own, so exchange properties/exchange-scoped variables from one splitter child can leak into the next child exchange -- but only when Camel exchange pooling is explicitly enabled (opt-in, not default). Present since 4.4 (CAMEL-20225) per fix PR #26553 (merged 2026-09-17 to main only, not yet released, no LTS backport yet). camel-core is a used_component but whether our deployment enables exchange pooling is UNCLEAR -- needs human confirmation; would become AFFECTS_US if pooling is enabled. No CVE/GHSA, not badged security by upstream (SUSPECTED). See reports/2026-09-22.md."
+    },
+    "CAMEL-24718": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-sql/camel-sql-stored observability header leak fix; camel-sql not a used_component."
+    },
+    "CAMEL-24836": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "PropertyBindingException message clarity improvement only, not security-relevant."
+    },
+    "CAMEL-24699": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang logging location change; camel-jbang not a used_component."
+    },
+    "CAMEL-24685": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-joor perf fix (script compile caching); camel-joor not a used_component."
+    },
+    "CAMEL-24684": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-groovy perf fix (parser reuse); camel-groovy not a used_component."
+    },
+    "CAMEL-24822": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-vertx-http lazy Vert.x init fix; camel-vertx-http not a used_component."
+    },
+    "CAMEL-24798": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-jbang MCP file tool enhancement; camel-jbang not a used_component."
+    },
+    "CAMEL-24764": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-huaweicloud-obs connection leak/config fixes; not a used_component."
+    },
+    "CAMEL-24751": {
+      "date": "2026-09-22",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-opa health-check ref-counting lifecycle fix; camel-opa not a used_component."
     }
   }
 }
