@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-28T04:07:18Z",
+  "last_run": "2026-09-29T04:12:00Z",
   "seen": {
     "CAMEL-24440": {
       "date": "2026-09-27",
@@ -3878,6 +3878,588 @@
       "verdict": "NOT_RELEVANT",
       "library": "apache-camel",
       "note": "Routine dependency bump: AWS Java SDK v2 BOM 2.55.1 -> 2.55.2 across ~47 modules (PR #26875, merged 2026-09-25). Version-property-only change, no CVE mentioned."
+    },
+    "CAMEL-25106": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep of the incremental window (commit 7057526605849e02dfc85b83ef3223abef238650, PR #27010, merged 2026-09-28): camel-kafka's KafkaConfiguration.createProducerProperties()/createConsumerProperties() applied sslContextParameters (setting ssl.keystore.*/ssl.truststore.*/etc.) but never touched security.protocol, which stays at its field default CommonClientConfigs.DEFAULT_SECURITY_PROTOCOL='PLAINTEXT' unless the user ALSO explicitly sets securityProtocol=SSL. Kafka's own client ignores all ssl.* properties under security.protocol=PLAINTEXT, so an endpoint configured with only sslContextParameters silently opens a completely unencrypted, unauthenticated socket to the broker -- CWE-319 (cleartext transmission of sensitive info), effectively also CWE-295 (no cert validation occurs at all under plaintext). camel-kafka IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag (components/camel-kafka/.../KafkaConfiguration.java lines 315, 410-417 and the consumer-side equivalent) that the identical pattern (sslContextParameters applied, but securityProtocol left at its PLAINTEXT default, never auto-upgraded) exists unchanged -> AFFECTS_US. Severity HIGH (estimated). Recommend an IMMEDIATE config audit (independent of any code fix): grep our route/application configs for sslContextParameters set on any kafka: endpoint/component without an explicit securityProtocol=SSL/SASL_SSL also set -- if that pattern exists in production, traffic is unencrypted today. Fix does not apply cleanly to 4.8.8: upstream also reorders endpoint-option-vs-context SSL precedence (addSslOption() helper), a moderately invasive change; the officially-backported PRs for camel-4.22.x and camel-4.18.x both reportedly hit cherry-pick conflicts, and no 4.8.x port exists or is planned upstream. Minimal in-house backport: add a resolveSecurityProtocol() that upgrades PLAINTEXT->SSL whenever sslContextParameters is set and securityProtocol is still at its default, called right before the existing addPropertyIfNotEmpty(SECURITY_PROTOCOL_CONFIG, ...) line in both createProducerProperties/createConsumerProperties. Port KafkaSslContextParametersTest (new upstream test) alongside. No CVE/GHSA filed as of this run."
+    },
+    "CAMEL-24451": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit e65fd915f6fd0be99da1186216a79a65104149cb, closes PR #26904, merged 2026-09-28): camel-xslt's XsltUriResolver.resolve() (invoked when an XSLT stylesheet calls the document() XPath function at transform time) resolved http:/https:/ftp:/file: URIs completely unconditionally, with zero protocol/URI restriction -- confirmed via direct source read of the camel-4.8.8 tag that the pre-fix XsltUriResolver has no access check anywhere. JAXP's ACCESS_EXTERNAL_STYLESHEET TransformerFactory attribute (the standard defense) is only enforced when no custom URIResolver returns a Source -- but Camel's XsltBuilder always installs its own resolver, silently bypassing that hardening even on deployments (e.g. camel-xslt-saxon, or a custom transformerFactory) that explicitly set ACCESS_EXTERNAL_STYLESHEET to restrict external access. Compounding this, XsltBuilder binds every inbound message header as a stylesheet parameter (confirmed at line 480 of 4.8.8's XsltBuilder.java), so an attacker who controls any header on a route ending in an xslt: step, combined with a stylesheet parameter reaching document(), can direct the transform to fetch an internal URL (SSRF, CWE-918) or read a local file (file:///etc/passwd, arbitrary file read, CWE-73) and have the result merged into transform output. camel-xslt IS a used_component -> AFFECTS_US. Severity HIGH (estimated), contingent on whether ACCESS_EXTERNAL_STYLESHEET hardening is/was assumed in place (plain camel-xslt never sets it itself, so a fully-default JAXP TransformerFactory was already at risk independent of this Camel bug; this fix specifically closes the gap for deployments relying on hardening via camel-xslt-saxon or a custom transformerFactory). Immediate mitigation regardless of backport timing: configure a hardened TransformerFactory (or JVM-wide javax.xml.accessExternalStylesheet/accessExternalDTD system properties) and strip/allow-list headers before any xslt: step whose stylesheet uses document() with a parameter. Backport: patch is self-contained to XsltBuilder.java/XsltUriResolver.java in components/camel-xslt; 4.8.8's constructor/resolve() signature is close enough that the new checkExternalAccessAllowed/parseAllowedProtocols logic should port with minor adaptation. Port XsltUriResolverExternalAccessTest. No 4.8.x backport label upstream; ships first in unreleased main (4.23.0)."
+    },
+    "CAMEL-25017": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit ab21f790a87d3483f6be23dd4b8150a8dc62e3e4, PR #26882, merged 2026-09-28): Claim Check EIP's ClaimCheckProcessor.getClaimCheckRepository() lazily creates a DefaultClaimCheckRepository (a plain non-thread-safe HashMap/Deque) and stores it as an ordinary exchange property. Camel's Splitter/Multicast/Recipient List/Wire Tap EIPs (and SEDA/Disruptor queue hand-off) shallow-copy the properties map when duplicating an Exchange, so every copy ends up holding a reference to the SAME repository object -- with parallelProcessing(), concurrent split branches then read/write the same HashMap/Deque. Upstream's own upgrade-guide note: 'with parallel processing a Get or Pop could return the message of another part.' A realistic pattern: a split().parallelProcessing() route where each branch claim-checks a different record/customer payload under the same literal key -- one branch's Get/Pop can retrieve a DIFFERENT branch's claimed-away exchange (headers+body), i.e. cross-message data leakage/corruption between concurrently processed parts of a batch (CWE-362 race condition -> CWE-200 information exposure). camel-core IS a used_component (Claim Check EIP ships in camel-core-processor). Confirmed via direct source read of the camel-4.8.8 tag: DefaultClaimCheckRepository.java implements ClaimCheckRepository only (no safe-copy mechanism), ClaimCheckProcessor.java stores the repo via plain exchange.setProperty() identical to pre-fix main, and AbstractExchange.copy()/ExchangeHelper.copyExchangeWithProperties() only special-case MESSAGE_HISTORY, with zero handling for the claim-check repository -> all vulnerable code paths present verbatim -> AFFECTS_US. Severity MEDIUM-HIGH (estimated). Fix applies cleanly: diffed all three touch points (AbstractExchange.copy() in camel-support, ExchangeHelper in camel-support, PooledProcessorExchangeFactory in camel-base-engine, plus DefaultClaimCheckRepository/ClaimCheckProcessor in camel-core-processor) against 4.8.8 line-by-line -- surrounding code matches exactly in every case, no drift. Port ClaimCheckEipSplitParallelTest, ClaimCheckEipStoreCopyTest, PooledExchangeClaimCheckEipSplitParallelTest. No CVE/GHSA filed; recommend prioritizing given camel-core is our most heavily used module and split+parallelProcessing+claim-check is a plausible production batch-pipeline pattern."
+    },
+    "CAMEL-24650": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit 0099984f836579b0ca53f95ff81f7870cd7e24eb, PR #26872, merged 2026-09-28): camel-http-common's DefaultHttpBinding.populateAttachments() checked an uploaded multipart file's extension against the configured fileNameExtWhitelist using `!fileNameExtWhitelist.contains(ext)` -- a SUBSTRING match, not a whitelist-entry match. With a whitelist such as 'html,htm,txt,csv,pdf,doc,docx,xls,xlsx', a crafted short extension that happens to be a substring of any allowed entry (e.g. 'ls' is contained in 'xls', 'oc' in 'doc', 'ml' in 'html') is incorrectly ACCEPTED even though it was never actually whitelisted -- CWE-434 (unrestricted upload of file with dangerous type) via extension-whitelist bypass. Note camel-servlet/camel-jetty's own AttachmentHttpBinding subclasses already had a correct exact-match implementation from an earlier fix (CAMEL-24427); this bug is specifically in DefaultHttpBinding's own separate, older, buggy copy, used by any HTTP-server component built directly on camel-http-common without a jetty/servlet-specific override. camel-http-common IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag (components/camel-http-common/.../DefaultHttpBinding.java line 339): the exact vulnerable substring-match code `if (!fileNameExtWhitelist.equals(\"*\") && !fileNameExtWhitelist.contains(ext))` is present verbatim, and HttpCommonEndpoint instantiates DefaultHttpBinding directly as the default binding -> AFFECTS_US. Severity MEDIUM (estimated) -- depends on which HTTP-server component(s) built on camel-http-common we run without a servlet/jetty-specific attachment binding override, and whether fileNameExtWhitelist is configured at all (default is permissive '*', in which case this bug is moot -- only relevant if an explicit whitelist is configured for a component using the base DefaultHttpBinding). Backport applies cleanly: self-contained method replacement (isFileNameAccepted) inside DefaultHttpBinding.java; 4.8.8's surrounding populateAttachments code matches closely. Port DefaultHttpBindingTest's testFileNameAcceptedDoesNotMatchSubstring regression test."
+    },
+    "CAMEL-25023": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit d51cc4c98a9fe98f2c5c7d148eea0d5526445fb3, closes PR #26892, merged 2026-09-28): camel-util's IOHelper.copy(InputStream, OutputStream, int bufferSize, boolean flushOnEachWrite, long maxSize) -- the shared size-limit-enforcing copy routine behind decompression-bomb guards such as camel-zipfile's maxDecompressedSize -- accumulated the running byte count in an `int total` while comparing it against the already-long `maxSize`. Once the cumulative sum itself overflows past Integer.MAX_VALUE (~2.147 GiB) during int arithmetic, `total` wraps to a negative value, and a negative int compared against a large positive maxSize is always false -- the size check silently stops firing forever above ~2 GiB, for any maxDecompressedSize configured at 2 GiB or higher. CWE-190 (integer overflow) enabling CWE-409/CWE-400 (decompression bomb / uncontrolled resource consumption). The default maxDecompressedSize (1 GiB) is below the wrap point and unaffected; only deployments that have explicitly raised the limit lose all protection above ~2 GiB. camel-util IS a used_component, and camel-zipfile (also a used_component, config/libraries.yaml line 92) calls IOHelper.copy(..., maxSize) via ZipFileDataFormat/ZipIterator to enforce maxDecompressedSize. Confirmed via direct source read of the camel-4.8.8 tag (core/camel-util/.../IOHelper.java line 241 `int total = 0;`, lines 260-261 `total += n; if (maxSize > 0 && total > maxSize) throw ...`) that the byte-for-byte identical vulnerable pattern is present -> AFFECTS_US. Severity MEDIUM (estimated) -- exposure is currently theoretical unless our config sets maxDecompressedSize >= 2 GiB on camel-zipfile/camel-tarfile (recommend auditing this). Backport applies cleanly: trivial, self-contained local-variable-type change (int -> long accumulator, capped return); no signature change. Port IOHelperTest's testCopyMaxSizeOfTwoGigabytesOrMore/testCopyMoreThanTwoGigabytes (use a synthetic zero-input-stream, no multi-GB allocation needed) -- cheap enough to backport proactively even without confirming current exposure."
+    },
+    "CAMEL-25104": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit 3e7c7cd0d997bd8c6e872e10aa704a60f79a55d9, PR #27008, merged 2026-09-28): camel-core's BaseSSLContextParameters ships two hard-coded default filters applied whenever a user does not configure explicit cipher-suite/protocol filters: DEFAULT_CIPHER_SUITES_FILTER_EXCLUDE (pre-fix: no 3DES pattern, only NULL/anon/EXPORT/DES/MD5/RC4) and DEFAULT_SECURE_SOCKET_PROTOCOLS_FILTER_EXCLUDE (pre-fix: 'SSL.*' only, does not exclude TLSv1/TLSv1.1). Separately, the SSLServerSocket configurer computed its 'available values' universe from socket.getSupportedCipherSuites()/getSupportedProtocols() (the JDK's full raw-supported list, which includes suites/protocols the JVM's own jdk.tls.disabledAlgorithms security policy already excludes from its enabled-by-default set) instead of the already-hardened getSSLParameters() form that the SSLEngine/SSLSocket configurers correctly use. Net effect: Camel's own default filtering can silently re-widen the effective negotiable protocol/cipher set beyond what the JVM itself would otherwise enable by default (legacy TLSv1/TLSv1.1 and 3DES/Sweet32-vulnerable ciphers remain negotiable), purely from Camel's own filtering, with zero user configuration involved -- CWE-757 (selection of less-secure algorithm during negotiation), CWE-327 (use of a broken/risky crypto algorithm, 3DES/Sweet32). camel-core IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag (core/camel-api/.../jsse/BaseSSLContextParameters.java lines 61-68): identical pre-fix filter lists, and the SSLServerSocket configurer (lines ~599-628) still calls getSupportedCipherSuites()/getSupportedProtocols() -- the SSLEngine/SSLSocket configurers in 4.8.8 already use getSSLParameters(), so the 'supported vs enabled' defect is scoped only to the SSLServerSocket path in both versions -> AFFECTS_US. Severity MEDIUM (estimated). Backport applies cleanly: same file/package in both trees, identical surrounding code, the upstream ~12-line diff should apply with at most trivial offset. Port SSLContextParametersDefaultProtocolsTest. Fix ships in 4.23.0 (main); PR requests backports for 4.22.x and 4.18.x -- no port/camel-4.8.x label exists, 4.8.8 needs a manual backport."
+    },
+    "CAMEL-24756": {
+      "date": "2026-09-29",
+      "verdict": "AFFECTS_US",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) silent security fix found via full commit sweep (commit 92f6f789ff0cac3e05da3da710b8e26fb9d69325, PR #26734, merged 2026-09-28): camel-base-engine's DefaultResourceResolvers.HttpResource (used for http:/https: resource: locations, e.g. loading routes, schemas, or scripts from a remote URL) opened its URLConnection with neither setConnectTimeout nor setReadTimeout, and the JDK default for both is 0 (wait forever). Resource resolution typically happens on the bootstrap thread during CamelContext startup, so a remote server that accepts the TCP connection and then never responds (or responds with an extremely slow trickle) hangs startup indefinitely -- CWE-400 (uncontrolled resource consumption) / availability impact via unbounded hang, with attacker relevance wherever the http: resource location is influenced by external/dynamic input (e.g. a header- or property-driven resource: URI) rather than a fixed, trusted, operator-authored location. camel-base-engine IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag (core/camel-base-engine/.../DefaultResourceResolvers.java): no setConnectTimeout/setReadTimeout call exists anywhere in HttpResource -> the identical unbounded-wait pattern is present -> AFFECTS_US. Severity LOW-MEDIUM (estimated) -- real but narrow: exploitability depends on an http(s): resource location being reachable with attacker-influenced or attacker-controlled input, which is not the common case for this mechanism. Fix adds connect/read timeouts (10s/30s defaults, overridable via camel.resource.http.connect-timeout / camel.resource.http.read-timeout system properties, 0 restores prior behavior). Backport applies cleanly: self-contained addition to DefaultResourceResolvers.java, no signature change to existing public API (only the internal HttpResource construction call sites change). No test class mentioned by name in the commit beyond upgrade-guide notes; add a basic connect/read-timeout unit test if backporting."
+    },
+    "CAMEL-25089": {
+      "date": "2026-09-29",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) fix found via full commit sweep (commit c7f696b9e08f3699dd7c4ae7840e564f57573bd1, PR #26990, merged 2026-09-28): camel-file's FileLockClusterView.doStop() released the OS file lock (and thus allowed another cluster member to become leader) WITHOUT first telling local listeners (notably ClusteredRoutePolicy, which starts/stops managed routes based on leadership) that this member had lost leadership -- fireLeadershipChangedEvent(null) was missing from the stop path entirely. This creates a window during graceful shutdown/redeploy/scale-down where a NEW leader can start its managed routes while the OLD leader's ClusteredRoutePolicy-managed routes haven't yet been told to stop -- two members briefly both actively running the same clustered route (e.g. both reading/processing the same files if using camel-file's FileLockClusterView), risking duplicate processing / data-integrity issues rather than a classic auth/injection vulnerability. camel-cluster IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag: FileLockClusterView.doStop() calls only closeInternal() (lock.release()) with no fireLeadershipChangedEvent call anywhere in the stop path -> the same missing-notification defect class is present. Marked NEEDS_REVIEW rather than AFFECTS_US because the practical blast radius depends on whether our deployment actually uses camel-file's FileLockClusterView for clustering (vs. another cluster-service implementation) and on route idempotency under brief duplicate processing. Severity LOW-MEDIUM (estimated). If confirmed relevant, backport is a small, targeted addition (insert the wasLeader-gated fireLeadershipChangedEvent(null) call before the lock/data-file release in FileLockClusterView.doStop()) -- 4.8.8's doStop()/closeInternal() shape is simple enough that this should port with minimal adaptation. No CVE/GHSA filed."
+    },
+    "CAMEL-25063": {
+      "date": "2026-09-29",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) fix found via full commit sweep (commit 80dd201302eaffde681e37b56b9f3a117c3cae12, PR #26946, merged 2026-09-28): camel-management's ManagedCamelContext/ManagedRoute escapeXml() helper (used when serializing route/context statistics to XML via dumpRouteAsXml/dumpRoutesAsXml/dumpStepStatsAsXml, reachable via JMX MBean operations) only escaped &, <, > and NOT the double-quote character, even though the escaped strings (route id, route group, and critically sourceLocation -- which pre-fix was not even passed through escapeXml at all, using the raw getSourceLocation() value) are interpolated directly into XML ATTRIBUTE values (e.g. sourceLocation=\"%s\"). A route id/group/source-location string containing a literal double-quote could break out of the attribute and inject additional XML attributes/structure into the dumped XML -- CWE-91-adjacent (XML injection). Practical exploitability is narrow: it requires an attacker (or an untrusted upstream) to control a route id or a route's source-location string (typically developer/deployment-controlled, not end-user input at runtime) and a downstream consumer of the dumped XML that parses it naively/trusts well-formedness (e.g. a management UI or CI tool ingesting dumpRoutesAsXml output). Also fixed in the same commit: a JMX-wildcard route-id-matching bug in reset(true) (used Query.match() instead of Query.eq(), so a route id containing literal * or ? could reset stats of unrelated routes -- a blast-radius/correctness issue for an already-authorized JMX caller, not a privilege escalation). camel-management IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag: ManagedRoute.java interpolates raw getSourceLocation() into sourceLocation=\"%s\" with NO escapeXml call at all (lines 546, 615, 667, 677) -- our pinned version has an even less-escaped form of this pattern than pre-fix main. Marked NEEDS_REVIEW rather than AFFECTS_US because exploitability hinges on an untrusted-input path into route ids/source locations that we have not confirmed exists in our deployment, and on a downstream XML consumer that doesn't tolerate malformed/injected XML. Severity LOW (estimated). If confirmed relevant, backport is straightforward: switch to a quote-escaping helper (upstream uses StringHelper.xmlEncode) and apply it to sourceLocation everywhere it's interpolated. No CVE/GHSA filed."
+    },
+    "CAMEL-25057": {
+      "date": "2026-09-29",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) fix found via full commit sweep (commit b4073ca92553cfe68af02e22c21c1dff9f7a3a40, PR #26940, merged 2026-09-28): camel-console's TraceDevConsole gated dumping ALL backlog-traced message content (bodies/headers -- potentially sensitive business data) on `if (dump != null)`, i.e. any non-null value of the dump query/option parameter -- including the literal string 'false' -- triggered a full trace-content dump. Fixed to require `\"true\".equalsIgnoreCase(dump)`. A caller who passed dump=false (or any other non-null value) intending to SUPPRESS the dump would instead receive it. camel-console IS a used_component. Confirmed via direct source read of the camel-4.8.8 tag: TraceDevConsole.java has `if (dump != null)` at both call sites (lines 79, 137) -- the same over-triggering behavior is present. Marked NEEDS_REVIEW rather than a clear vulnerability because this doesn't add or remove any authentication/authorization -- dev-console access is already gated the same way regardless of the dump= value, and dumping trace content on this console (for an already-authorized caller) is its intended purpose; the bug only changes WHICH query values trigger the dump, not WHO can trigger it. Real-world impact requires an authorized-but-careless caller (or integration) that passes a dump= value other than 'true' while expecting no dump. Severity LOW (estimated). Backport straightforward if desired: change the guard to an equalsIgnoreCase('true') check at both call sites. No CVE/GHSA filed."
+    },
+    "CAMEL-25084": {
+      "date": "2026-09-29",
+      "verdict": "NEEDS_REVIEW",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE/GHSA yet) fix found via full commit sweep (commit d954046aace20f25ee9d654bd6590c6a057b86f0, PR #26984, merged 2026-09-28): among a broad batch of camel-util string/time/URI/file helper correctness fixes, one touches FileUtil.compactPath()'s '..'-collapsing stack logic: pre-fix, encountering '..' when the stack held only a single Windows drive-letter entry (e.g. 'C:') would POP that drive-letter entry too (no guard against popping below a drive root), producing a malformed compacted path that has lost its drive prefix. compactPath() is the function GenericFileProducer.jailedCheck() (camel-file's core path-traversal containment check -- 'file must be within starting directory') calls on BOTH the candidate answer and the baseDir before comparing them with GenericFileHelper.isWithinDirectory(). camel-util and camel-file (via camel-file's use of FileUtil.compactPath, confirmed by grep across components/camel-file) are used_components. On manual trace-through of a Windows-drive baseDir scenario (e.g. baseDir='C:\\\\data', a crafted answer walking '..' past the drive root), the over-popping appears to produce a compacted answer that no longer starts with the compacted baseDir -- i.e. the containment check would likely still REJECT (fail closed) rather than being bypassed, so this looks more like a correctness/confusing-error-message bug than a proven jail-check bypass. However this has NOT been proven safe with an actual reproduction/test on a Windows-path baseDir configuration, and jailedCheck is the same defense class as the already-tracked CAMEL-24419 (AFFECTS_US) finding, so it warrants a closer look rather than an outright dismissal. Confirmed via direct source read of the camel-4.8.8 tag that FileUtil.compactPath() has the identical pre-fix stack logic with no Windows-drive guard (core/camel-util/.../FileUtil.java); note 4.8.8's separate FileUtil.normalizePath() is a trivial, unrelated separator-conversion function (not the vulnerable one -- do not confuse the two). Severity LOW (estimated) pending confirmation. If backported: the guard is a small, self-contained addition (isWindowsDrive() check) to compactPath()'s stack-processing loop. No CVE/GHSA filed. This project only runs camel-file on Linux/container hosts in practice (Windows-drive paths would not arise) -- recommend confirming that assumption before spending further effort here."
+    },
+    "CAMEL-25105": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) security fix found via full commit sweep (commit 960f69708939a9c921c38383ce3e0b7dde78a4a9, PR #27009, merged 2026-09-28): camel-netty's DefaultServerInitializerFactory/HttpServerInitializerFactory unconditionally called engine.setNeedClientAuth(consumer.getConfiguration().isNeedClientAuth()) AFTER an SSLEngine already configured via sslContextParameters' clientAuthentication=REQUIRE had need-client-auth set -- silently disabling a configured mutual-TLS requirement whenever the separate, Netty-specific needClientAuth endpoint option (default false) wasn't ALSO set to true. Would be HIGH (estimated), CWE-295/CWE-863, if in scope. camel-netty and camel-netty-http are NOT used_components (config/libraries.yaml) -> NOT_RELEVANT. Flagging the pattern for awareness if netty is ever adopted."
+    },
+    "CAMEL-25103": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) security fix found via full commit sweep (commit 0a541d75d6231c2f76002ab9eacb6b7548112f73, PR #27007, merged 2026-09-28): camel-vertx's VertxHelper.setupSSLOptions() (shared by camel-platform-http-vertx/camel-vertx-http/camel-vertx-websocket) never read sslContextParameters' clientAuthentication setting nor its effective cipher/protocol filters -- configuring REQUIRE client-auth or cipher/protocol restrictions had zero effect on Vert.x-based endpoints, a full silent bypass of intended mTLS enforcement and cipher/protocol hardening. Would be HIGH (estimated), CWE-295/CWE-757, if in scope. camel-vertx components are NOT used_components -> NOT_RELEVANT."
+    },
+    "CAMEL-25102": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Mixed bundle of ~10 JSSE/camel.ssl bugs found via full commit sweep (commit 5c00d2d6db80e0bcc9b728e363fbc964a325434c, PR #27005, merged 2026-09-28) -- assessed sub-bug by sub-bug against 4.8.8: (1) SNI hostnames never applied for SSLEngine-based clients -- present in 4.8.8 but SNI IS already correctly applied for the SSLSocket path 4.8.8 actually uses, and neither camel-core nor camel-kafka consume the SSLEngine path directly, so not applicable to our current usage; (2) empty-include-pattern filter-everything bug -- fail-closed (availability), present in 4.8.8, not a weakening; (3) named-groups/signature-schemes null-guard -- feature absent from 4.8.8 entirely (JDK19+/PQC-era addition); (4) camel.ssl.trustStore-only config silently dropped in BaseMainSupport -- confirmed NOT present in 4.8.8 (its setSslProperties has an older, simpler shape without the buggy conditional early-return; this is a regression introduced by a later self-signed-cert feature that post-dates 4.8.8); (5) ClientAuthentication.valueOf case-sensitivity -- present in 4.8.8 but fails closed (throws at startup), a usability bug not a vulnerability. No AFFECTS_US sub-finding for camel-core/camel-kafka as currently used -> NOT_RELEVANT overall. Re-evaluate item (1) if camel-netty/vertx/jetty are ever adopted. No port/camel-4.x backport label on this PR (unlike the related SSL fixes), consistent with its content being mostly non-critical."
+    },
+    "CAMEL-25107": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) fix found via full commit sweep (commit 587a70b9f5979215bc3907cd46cff8e91e25bbac, PR #27011, merged 2026-09-28): camel-core's BaseSSLContextParameters reflectively invokes JDK 19+/20+ SSLParameters.setNamedGroups()/setSignatureSchemes(); a duplicate/blank entry threw, and the code silently swallowed the exception (`catch (Exception e) { // ignore }`), leaving the JVM's default named-groups/signature-schemes in effect instead of the administrator's intended restricted set (CWE-755/CWE-757-ish). Confirmed via grep of the camel-4.8.8 tag: zero matches for namedGroup/signatureScheme/NamedGroup/SignatureScheme anywhere in BaseSSLContextParameters.java -- this whole named-groups/PQC feature post-dates 4.8.8 entirely -> NOT_RELEVANT (feature does not exist in our pinned version). Ships in 4.23.0; backported to camel-4.22.x (completed), attempted for camel-4.18.x (cherry-pick conflicts, unresolved). No 4.8.x port."
+    },
+    "CAMEL-24444": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) security-flavored fix found via full commit sweep (commits 0a72858971ec2d581b41a5d58b129906d34a6c14 and 029b2d80e4dd4c8a6e077271fa0cf825ec7d612b, PR #27006, merged 2026-09-28): camel-xmlsecurity gains an option to require that verified XML-Signature output be covered by a Reference element -- an XML Signature wrapping / reference-coverage hardening (CWE-347-adjacent). camel-xmlsecurity is NOT a used_component (config/libraries.yaml) -> NOT_RELEVANT."
+    },
+    "CAMEL-25022": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Security-flavored fix found via full commit sweep (commit 4121a741397a5538ac37c3430d53e15421513355, merged 2026-09-28): camel-oauth now honors the JWT 'nbf' (not-before) claim when authenticating bearer tokens on the servlet backend -- previously a token could be accepted before its intended valid period began (improper JWT validation, CWE-347-adjacent). camel-oauth is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24937": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "SUSPECTED (no CVE) path-confinement hardening found via full commit sweep (commit e66985e993e74ce0d361be177fe45d7ddfb8bcdb, merged 2026-09-28): camel-pqc's FileBasedKeyLifecycleManager key file resolution now confined to the configured directory (CWE-22-style path traversal hardening in a post-quantum-crypto key-management component). camel-pqc is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-24900": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Header-filter-bypass fix found via full commit sweep (commit 0606943dfe40c1fb205c636beab3cec915e9f436, merged 2026-09-28): camel-jcr now applies header filtering when mapping JCR node properties to Exchange headers -- same bug family as the many already-tracked 'non-Camel-prefixed header bypasses HeaderFilterStrategy' GHSA advisories (couchdb/couchbase/kafka/salesforce/etc., all previously NOT_RELEVANT). camel-jcr is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-25116": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Information-disclosure fix found via full commit sweep (commit 5204e4957608f2d83c713aa89a5609f8383bbfa2, PR #27024, merged 2026-09-28): camel-platform-http-main's /q/download?classpath=true endpoint listed classpath resources by scanning the ENTIRE effective classpath including third-party dependency JAR contents (not just the application's own code/resources), letting an authorized console user enumerate and download any resource bundled inside any dependency jar. Fixed by restricting resource discovery to classpath directories, the app's own packaged classes, and the camel run project directory, explicitly excluding dependency-jar roots. Whatever generic auth applies to the management HTTP server (same as /q/health, /q/jolokia) is unchanged by this diff. camel-platform-http-main is NOT a used_component -> NOT_RELEVANT."
+    },
+    "CAMEL-25099": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Grab-bag of 'configuration option not applied' fixes found via full commit sweep (commit 45cff41ebfcac230c04ce12e34a5c6719690460f, PR #27001, merged 2026-09-28) in camel-main's BaseMainSupport/DefaultConfigurationConfigurer. One sub-bug is TLS-adjacent: a useGlobalSslContextParameters auto-detection check ran AFTER setPropertiesOnTarget had already consumed/removed that key from the properties map, so the check was always true and could silently force the embedded HTTP/management server onto the CamelContext's global SSLContextParameters even when a user explicitly set it to false. Confirmed via grep that useGlobalSslContextParameters does not exist anywhere in the camel-4.8.8 tag's BaseMainSupport.java -- this whole HTTP-server SSL-params auto-detection feature was added to camel-main after 4.8.8 -> NOT_RELEVANT (feature absent in our pinned version). Remaining sub-bugs (LRA/OpenTelemetry/Metrics enabled flags, stream-caching binding order, a duplicated autowiring LifecycleStrategy) are plain functional regressions, no security relevance."
+    },
+    "CAMEL-25112": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Cross-thread data-isolation fix found via full commit sweep (commit caa6f9fe3b9d8a6524b5ee95a567394c427a1167, PR #27018, merged 2026-09-28): on main pre-fix, PropertiesComponent.localProperties was a single Stack<Properties> SHARED by all threads of a CamelContext (not thread-local), pushed with route-template parameter values (which can include secrets/vault-resolved values) and popped when done -- a concurrent resolvePropertyPlaceholders() call from a different thread could observe another thread's in-flight local properties during the push/pop window (cross-thread secret/property confusion). Would have been MEDIUM/HIGH (estimated) if it affected us. Confirmed via direct source read of the camel-4.8.8 tag (core/camel-base/.../PropertiesComponent.java line 124): `private final ThreadLocal<Properties> localProperties = new ThreadLocal<>();` -- 4.8.8 ALREADY implements this as thread-local; the vulnerable shared-Stack pattern was a regression introduced on main sometime after 4.8.8 and is now being fixed back (to an improved, stacking thread-local design) -> NOT_RELEVANT, our pinned version was never exposed to this defect."
+    },
+    "CAMEL-25090": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit e0cb3aa9d649846efd6de552809fa47295fb23bc, PR #26991, merged 2026-09-28): bundle of vault-configuration and event-notifier bugs in camel-main/camel-core. The vault bug is a 'target' variable reused across a loop that iterates aws/gcp/azure/etc. vault sub-configs, so a second/third configured vault's properties get attached to a dead orphaned object the runtime never reads (a vault silently not applied, not a cross-boundary secrets leak). Event-notifier fixes are a wrong-flag-check and a lifecycle-ordering bug. No secret VALUES cross a thread/exchange/tenant boundary in this diff -> NOT-SECURITY, correctness/reliability only."
+    },
+    "CAMEL-25110": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit 9285996c309676624af838f3511a76bf9765070f, PR #27016, merged 2026-09-28): DefaultPropertiesParser string-mangling correctness bugs (unanchored ?nested=true stripping corrupting resolved values containing that literal substring, escaped-backslash/index-tracking bugs, inconsistent '?' optional-marker handling). All are value-mangling bugs (can truncate/garble a resolved string); none cause a value to be read across a security/thread/tenant boundary -> NOT-SECURITY."
+    },
+    "CAMEL-25111": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit 6c8c962ff1309876388d022fb99a9d8f26f110f0, PR #27017, merged 2026-09-28): PropertiesComponent thread-safety/reliability bugs (non-atomic properties.clear()+putAll() torn-read during reload, list->CopyOnWriteArrayList, function-resolver map synchronization, wrong map passed to a diagnostic-only 'where did this property come from' string). None mix up or leak a property/secret VALUE into a different lookup's result -> NOT-SECURITY."
+    },
+    "CAMEL-25064": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit 3dcc4cfcaa571ba7e5370e360621a19f9d36a7ca, PR #26958, merged 2026-09-28): camel-management EIP/service MBean TabularData/CompositeData key-collision bugs (KeyAlreadyExistsException fixes for endpoints/tasks/choice/doTry rows). Specifically checked the listEndpoints 'static/dynamic by real uri not masked' fix -- confirmed the exposed url field remains sanitizeUri()-masked when requested; only the internal registry lookup (previously matching against an already-masked string and always failing) was switched to use the real URI for the lookup itself. No JMX access-control or exposure-scope change -> NOT-SECURITY."
+    },
+    "CAMEL-25120": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit da3f825f823d9c4b19d9f830bcd3b39a38325b7f, PR #27026, merged 2026-09-28): camel-core no longer rejects '&&' in endpoint URIs. Per the PR description (fetched from github.com), the original rejection was 'a validation check from 2008... implemented when URIs were parsed using regular expressions that split on & characters', a legacy syntax-sanity heuristic for the old regex-based parser -- explicitly not a security control, no CVE/injection concern ever associated with it (a RAW(...)/RAW{...} secret-value carve-out already existed for legitimate '&&' inside secrets). The fix makes URIScanner (the modern tokenizer) treat '&&' as a single separator with an empty parameter silently dropped, consistent with how a single '&' is already handled; the trailing-'&' check is retained and a bare '&=value' segment still fails. No new parameter-injection/duplicate-parameter-name smuggling path was introduced -> NOT-SECURITY, pure false-positive/legacy-heuristic removal."
+    },
+    "CAMEL-25117": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit f01542d25b6a7baa0c0f1c984e2d7c2e714be7b3, PR #27023, merged 2026-09-28): camel-spring-xml/camel-xml-jaxb/camel-core-xml bean-wiring and XML-dumper correctness bugs (wrong JAXB @XmlElement type bound to an element, missing resilience4j/fault-tolerance config wiring in CamelNamespaceHandler, dumper source-location gating, property-placeholder/registry init ordering, stream-caching enabled logic, spoolRules swallowing lookup failures, a supervising-route-controller enabled=false not being honored). None touch DocumentBuilderFactory/SAXParserFactory/XMLInputFactory feature flags, entity resolution, or DTD processing -- no XXE relevance. The 'input' (Spring XML config) is developer/operator-authored, not attacker-controlled. camel-spring-xml IS a used_component but this is NOT-SECURITY, correctness/config-wiring only."
+    },
+    "CAMEL-25118": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit c114e65c33e4aea0a730d6846845c2ae77024a3e, PR #27022, merged 2026-09-28): MODULE CORRECTION -- despite the PR title saying 'camel-catalog', the diff actually touches core/camel-core-catalog (AbstractCamelCatalog, CatalogHelper, EndpointValidationResult), which IS a used_component and IS wired into the runtime (RuntimeCamelCatalog, reachable via component-verify/health operations) -- NOT the separate build-time-only tooling module literally named camel-catalog, which is untouched by this commit. The actual fixes (unknown-scheme detection, userinfo/password parsing for endpoint-URI validation using getRawAuthority(), {{env:x:default}} placeholder round-tripping, Long-typed integer validation, and a RAW(...) -> RAW{...} secret-masking-wrapper corruption fix when a secret value contains ')') are all validation-ACCURACY improvements to advisory/diagnostic feedback (IDE hints, verify-endpoint messages) -- no code path gates a dangerous runtime action on this validation passing, and the RAW-wrapper fix is itself a masking-CORRUPTION fix (hardening), not a masking regression -> NOT-SECURITY."
+    },
+    "CAMEL-25078": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reviewed via full commit sweep (commit 1e72b804794b2b850567efdb5ec9709d37703b89, PR #26968, merged 2026-09-28): camel-xml-jaxp DomConverter/StaxConverter/XmlLineNumberParser type-conversion correctness bugs (16KB read cap on XMLStreamReader->InputStream/Reader, writer-flush bug for non-UTF8 charsets, DOM Text-node ClassCastException in mixed content, Attr-node conversion, XML-declaration encoding honored for file->XMLStreamReader, line-number parser re-parsing past the root element). Explicitly checked StaxConverter.getInputFactory()/createXMLStreamReader and DomConverter -- no XMLInputFactory/DocumentBuilderFactory/SAXParserFactory feature flags (external entities, DTDs, secure processing) touched anywhere -> no XXE relevance. camel-xml-jaxp IS a used_component but this is NOT-SECURITY."
+    },
+    "CAMEL-24943": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Aggregate EIP recover-task resend-race correctness fix; camel-core used, no security angle"
+    },
+    "CAMEL-24945": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Aggregate EIP optimistic-locking completion/timeout correctness fix; camel-core used, no security angle"
+    },
+    "CAMEL-24947": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-seda late-reply-after-timeout correctness fix; camel-seda used, no security angle"
+    },
+    "CAMEL-24952": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-seda virtualThreadPerTask consumer-stop correctness fix; camel-seda used, no security angle"
+    },
+    "CAMEL-25002": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Loop EIP graceful-shutdown correctness fix (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25003": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "ServicePool producer-eviction lifecycle correctness fix (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25004": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Producer cache / stream caching lifecycle correctness fixes (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25005": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Saga EIP compensation-loss correctness fix (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25006": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Saga EIP REQUIRED/SUPPORTS-step-after-end correctness fix; camel-core used, no security angle"
+    },
+    "CAMEL-25007": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Supervising route controller deadlock fix (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25008": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Supervising route controller lost-restart-task fix (deep review); camel-core used, no security angle"
+    },
+    "CAMEL-25010": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Supervising route controller restart-race correctness fix; camel-core used, no security angle"
+    },
+    "CAMEL-25011": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Saga EIP exchange-copy correctness fix (keep saga in copies); camel-core used, no security angle"
+    },
+    "CAMEL-25012": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Wire Tap / OnCompletion EIP graceful-shutdown-wait correctness fixes; camel-core used, no security angle"
+    },
+    "CAMEL-25014": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "ThrottlingExceptionRoutePolicy circuit-recheck/keepOpen correctness fix; camel-support used, no security angle"
+    },
+    "CAMEL-25016": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-file retry-on-download-failure correctness fix; camel-file used, no security angle"
+    },
+    "CAMEL-25018": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Throttling route policy resume-vs-suspended-consumer correctness fix; camel-support used, no security angle"
+    },
+    "CAMEL-25019": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-quickfix InOut-reply-session correctness fix; camel-quickfix NOT a used_component"
+    },
+    "CAMEL-25020": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "observability CamelSqlQuery header correctness fix; not a security/masking issue"
+    },
+    "CAMEL-25024": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mongodb consumer failure-handling fix; camel-mongodb NOT a used_component"
+    },
+    "CAMEL-25025": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mongodb change-stream document-key fix; camel-mongodb NOT a used_component"
+    },
+    "CAMEL-25033": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-bean method-parameter comma-splitting correctness fix; camel-bean used, no security angle"
+    },
+    "CAMEL-25034": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-support convertBodyTo charset-header correctness fix; no security angle"
+    },
+    "CAMEL-25035": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-support variableReceive per-message replace correctness fix; narrow correctness bug, no clear external trigger"
+    },
+    "CAMEL-25036": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "EventDrivenPollingConsumer.receive() lifecycle-lock correctness fix; camel-support used, no security angle"
+    },
+    "CAMEL-25037": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "EventDrivenPollingConsumer interrupted-receive correctness fix; camel-support used, no security angle"
+    },
+    "CAMEL-25038": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-disruptor request/reply correctness fixes; camel-disruptor NOT a used_component"
+    },
+    "CAMEL-25040": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel_catalog_doc documentation-completeness fix; tooling/docs only"
+    },
+    "CAMEL-25042": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "dev-mode reload dot-directory-skip fix; dev-only, no security angle"
+    },
+    "CAMEL-25043": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Tokenize language deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25044": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "ExpressionBuilder/PredicateBuilder deep-review correctness fixes, plus jsonpath/jq null-body-hint test fix; no security angle found"
+    },
+    "CAMEL-25045": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Java DSL builders deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25046": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Rest DSL deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25047": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Reifiers/error-handler deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25048": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Route templates deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25049": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-semantic batching feature work; camel-semantic NOT a used_component (new component)"
+    },
+    "CAMEL-25052": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-file FileLockClusterView leadership-check-on-stop correctness fix (separate from CAMEL-25089's finding, same PR area)"
+    },
+    "CAMEL-25053": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Stream resequencer restart-timeout correctness fix; camel-core used, no security angle"
+    },
+    "CAMEL-25058": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-saga complete/compensate LRA-consultation correctness fix; camel-saga NOT explicitly listed but not security-relevant regardless"
+    },
+    "CAMEL-25060": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-base circular-reference-through-optional-placeholder detection improvement; diagnostic only, no security angle"
+    },
+    "CAMEL-25061": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "FileLockClusterService leadership-after-restart correctness fix; camel-cluster/camel-file used, no security angle (availability only)"
+    },
+    "CAMEL-25062": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "ClusteredRoutePolicy deadlock-on-leadership-change fix; camel-cluster used, no security angle (availability only)"
+    },
+    "CAMEL-25065": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-management Processor/ContextOnly statistics-freeze correctness fix; no security angle"
+    },
+    "CAMEL-25074": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-sql documentation-wording fix; docs only"
+    },
+    "CAMEL-25076": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-mcp-server stdio tool-registration correctness fix; camel-mcp-server NOT a used_component"
+    },
+    "CAMEL-25081": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-bean comma-inside-braces parameter-splitting fix; camel-bean used, no security angle"
+    },
+    "CAMEL-25082": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-disruptor timeout-exchange-copy-marking fix; camel-disruptor NOT a used_component"
+    },
+    "CAMEL-25083": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-support ObjectHelper type-coercion/iterator deep-review correctness fixes; no security angle found"
+    },
+    "CAMEL-25085": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-support RestBindingAdvice Content-Type-from-produces correctness fix; no security angle"
+    },
+    "CAMEL-25087": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-coap muteException consumer option (same family as already-tracked muteException/stack-trace-exposure GHSAs); camel-coap NOT a used_component"
+    },
+    "CAMEL-25092": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-support property-binding nested-list-index correctness fix; no security angle"
+    },
+    "CAMEL-25094": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-seda spooled-stream-cache-lifecycle correctness fix for Multicast/Split; camel-seda used, no security angle"
+    },
+    "CAMEL-25097": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-main route-loading/reload/startup-condition deep-review correctness fixes; camel-main used, no security angle found"
+    },
+    "CAMEL-25098": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-main bootstrap/profile/duration-option deep-review correctness fixes; camel-main used, no security angle found"
+    },
+    "CAMEL-25101": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-main 'property not auto-configured' logging fix; observability only"
+    },
+    "CAMEL-25108": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Component/endpoint/consumer base-class deep-review correctness fixes; camel-core/camel-support used, no security angle found on review"
+    },
+    "CAMEL-25109": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Scheduled poll consumer deep-review correctness fixes; camel-core used (related area to the already-tracked CAMEL-24973 finding, but this batch itself is edge-case/lifecycle correctness, no new sensitive-data-exposure sub-bug found)"
+    },
+    "CAMEL-25114": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "doTry/doCatch/doFinally failure-path deep-review correctness fixes; camel-core used, no security angle found"
+    },
+    "CAMEL-25115": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "Error handler failure-path deep-review correctness fixes; camel-core used, no security angle found"
+    },
+    "CAMEL-25119": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-package-maven-plugin build-time skip-flag fix; build tooling only, not shipped at runtime"
+    },
+    "CAMEL-25121": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-util splitSafeQuote whitespace-preservation fix; camel-util used, minor parsing correctness only"
+    },
+    "CAMEL-24339": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-openai llm scheme-alias feature addition; camel-openai NOT a used_component"
+    },
+    "CAMEL-24742": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-opa test-fixture fix (OpaSecurityPolicyWasmTest); test-only, camel-opa NOT a used_component"
+    },
+    "CAMEL-24844": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "YAML OpenAPI specification support feature addition; feature, no security angle"
+    },
+    "CAMEL-16073": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-pulsar consumer acknowledgement/exchange-handling fixes (bundled with CAMEL-24933/24934); camel-pulsar NOT a used_component"
+    },
+    "CAMEL-24933": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-pulsar consumer failure-handling fix; camel-pulsar NOT a used_component"
+    },
+    "CAMEL-24934": {
+      "date": "2026-09-29",
+      "verdict": "NOT_RELEVANT",
+      "library": "apache-camel",
+      "note": "camel-pulsar change-stream/exchange-handling fix; camel-pulsar NOT a used_component"
     }
   }
 }
